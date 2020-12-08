@@ -59,4 +59,8 @@ endif
 filetype plugin on
 
 "Keymaps
+nnoremap <C-s> :w<CR> 
+nnoremap <C-s-q> :wq<CR>
+nnoremap <C-q> :wq!<CR>
 nmap <C-f> :NERDTreeToggle<CR>
+set clipboard+=unnamedplus
