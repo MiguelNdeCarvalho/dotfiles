@@ -57,4 +57,6 @@ if (empty($TMUX))
 endif
 
 filetype plugin on
-nmap <F3> :NERDTreeToggle<CR>
+
+"Keymaps
+nmap <C-f> :NERDTreeToggle<CR>
