@@ -1,15 +1,20 @@
 call plug#begin('~/.vim/plugged')
+"Theme
 Plug 'rakr/vim-one'
 Plug 'tpope/vim-fugitive'
+
+"NerdTree Stuff
 Plug 'preservim/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'vim-airline/vim-airline'
 Plug 'hugolgst/vimsence'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'sheerun/vim-polyglot'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 syntax on
