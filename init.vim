@@ -9,10 +9,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'hugolgst/vimsence'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'ycm-core/YouCompleteMe'
-Plug 'sheerun/vim-polyglot'
+"Language Stuff
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 call plug#end()
 
