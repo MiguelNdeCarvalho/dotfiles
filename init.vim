@@ -15,12 +15,30 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 call plug#end()
 
+"Coc extensions
+let g:coc_global_extensions = [
+  \ 'coc-clangd',
+  \ 'coc-discord-rpc',
+  \ 'coc-eslint',
+  \ 'coc-go',
+  \ 'coc-html',
+  \ 'coc-java',
+  \ 'coc-json',
+  \ 'coc-markdownlint',
+  \ 'coc-python',
+  \ 'coc-sh',
+  \ 'coc-snippets',
+  \ 'coc-sql',
+  \ 'coc-texlab',
+  \ 'coc-xml',
+  \ 'coc-yaml',
+  \ ]
+
 syntax on
 colorscheme one
 set background=dark
 
 let g:UltiSnipsExpandTrigger="<F2>"
-
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
