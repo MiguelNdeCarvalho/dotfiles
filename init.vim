@@ -5,12 +5,17 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'hugolgst/vimsence'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'sheerun/vim-polyglot'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 call plug#end()
 
 syntax on
 colorscheme one
 set background=dark
+
+let g:UltiSnipsExpandTrigger="<F2>"
+
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -27,3 +32,6 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
+filetype plugin on
+nmap <F3> :NERDTreeToggle<CR>
