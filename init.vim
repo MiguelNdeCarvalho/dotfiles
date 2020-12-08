@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'rakr/vim-one'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'hugolgst/vimsence'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
