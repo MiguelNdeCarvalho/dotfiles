@@ -8,6 +8,8 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'sheerun/vim-polyglot'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 syntax on
