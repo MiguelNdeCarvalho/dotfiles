@@ -11,7 +11,8 @@ Plug 'ryanoasis/vim-devicons'
 
 "Language Stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdcommenter'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 call plug#end()
 
