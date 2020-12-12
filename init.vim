@@ -19,6 +19,8 @@ call plug#end()
 "Coc extensions
 let g:coc_global_extensions = [
   \ 'coc-clangd',
+  \ 'coc-css',
+  \ 'coc-cssmodules',
   \ 'coc-discord-rpc',
   \ 'coc-eslint',
   \ 'coc-go',
@@ -39,8 +41,6 @@ syntax on
 colorscheme one
 set background=dark
 
-let g:UltiSnipsExpandTrigger="<F2>"
-
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -57,12 +57,10 @@ if (empty($TMUX))
   endif
 endif
 
-filetype plugin on
-
-"Keymaps
-nnoremap <C-s> :w<CR> 
+"Shortcuts
+nnoremap <C-s> :w<CR>
 nnoremap <C-s-q> :wq<CR>
-nnoremap <C-q> :wq!<CR>
+nnoremap <C-q> :q!<CR>
 nmap <C-f> :NERDTreeToggle<CR>
 vmap ce <plug>NERDCommenterToggle
 nmap ce <plug>NERDCommenterToggle
