@@ -30,6 +30,7 @@ let g:coc_global_extensions = [
   \ 'coc-java',
   \ 'coc-json',
   \ 'coc-markdownlint',
+  \ 'coc-pairs',
   \ 'coc-python',
   \ 'coc-sh',
   \ 'coc-snippets',
