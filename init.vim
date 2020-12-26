@@ -36,6 +36,7 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-snippets',
   \ 'coc-sql',
+  \ 'coc-terminal',
   \ 'coc-texlab',
   \ 'coc-xml',
   \ 'coc-yaml',
@@ -68,6 +69,7 @@ nnoremap <C-q> :q!<CR>
 nmap <C-f> :NERDTreeToggle<CR>
 vmap ce <plug>NERDCommenterToggle
 nmap ce <plug>NERDCommenterToggle
+nmap t <Plug>(coc-terminal-toggle)
 set clipboard+=unnamedplus
 
 "Autocomplete
