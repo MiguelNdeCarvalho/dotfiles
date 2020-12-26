@@ -14,6 +14,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'adimit/prolog.vim'
 call plug#end()
 
 "Coc extensions
