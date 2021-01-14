@@ -15,6 +15,7 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'adimit/prolog.vim'
+Plug 'pearofducks/ansible-vim'
 call plug#end()
 
 "Coc extensions
