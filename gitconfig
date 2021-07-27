@@ -1,0 +1,8 @@
+[user]
+	name = MiguelNdeCarvalho
+	email = geral@miguelndecarvalho.pt
+	signingkey = 2B42D23ECD929EF3
+[commit]
+	gpgsign = true
+[core]
+	editor = vim
