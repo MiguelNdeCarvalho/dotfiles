@@ -30,7 +30,7 @@ ToolBoxButtonX=588
 ToolBoxButtonY=44
 
 [Containments][1][Wallpaper][org.kde.image][General]
-Image=/home/mike/Downloads/bmw_headlights_black_style_99557_1920x1080.jpg
+Image=/home/mike/.wallpapers/nord.png
 SlidePaths=/home/mike/.local/share/wallpapers,/usr/share/wallpapers
 
 [Containments][2]
@@ -47,7 +47,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][17][Configuration]
-PreloadWeight=25
+PreloadWeight=30
 
 [Containments][2][Applets][17][Configuration][Appearance]
 dateFormat=isoDate
@@ -90,7 +90,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][27][Configuration]
-PreloadWeight=86
+PreloadWeight=91
 
 [Containments][2][Applets][27][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -155,7 +155,7 @@ immutability=1
 plugin=com.github.tilorenz.compact_pager
 
 [Containments][2][Applets][36][Configuration]
-PreloadWeight=70
+PreloadWeight=80
 
 [Containments][2][Applets][36][Configuration][ConfigDialog]
 DialogHeight=496
