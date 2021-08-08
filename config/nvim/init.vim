@@ -32,6 +32,7 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-go',
   \ 'coc-html',
+  \ 'coc-htmldjango',
   \ 'coc-java',
   \ 'coc-json',
   \ 'coc-markdownlint',
