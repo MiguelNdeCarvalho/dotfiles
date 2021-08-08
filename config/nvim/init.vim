@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 "Theme
-Plug 'rakr/vim-one'
+Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 
 "NerdTree Stuff
@@ -44,7 +44,7 @@ let g:coc_global_extensions = [
   \ ]
 
 syntax on
-colorscheme one
+colorscheme nord
 set background=dark
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
