@@ -26,6 +26,7 @@ let g:coc_global_extensions = [
   \ 'coc-cssmodules',
   \ 'coc-docker',
   \ 'coc-discord-rpc',
+  \ 'coc-emmet',
   \ 'coc-eslint',
   \ 'coc-gitignore',
   \ 'coc-go',
