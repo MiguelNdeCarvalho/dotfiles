@@ -148,7 +148,7 @@ immutability=1
 plugin=com.github.tilorenz.compact_pager
 
 [Containments][2][Applets][36][Configuration]
-PreloadWeight=80
+PreloadWeight=85
 
 [Containments][2][Applets][36][Configuration][ConfigDialog]
 DialogHeight=496
@@ -181,7 +181,7 @@ DialogWidth=1920
 PreloadWeight=10
 
 [Containments][2][General]
-AppletOrder=6;36;25;27;29;28;7;17
+AppletOrder=36;25;27;29;28;7;17
 
 [Containments][30]
 ItemGeometries-1920x1080=
