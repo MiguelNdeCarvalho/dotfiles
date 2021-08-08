@@ -21,6 +21,7 @@ call plug#end()
 "Coc extensions
 let g:coc_global_extensions = [
   \ 'coc-clangd',
+  \ 'coc-cmake',
   \ 'coc-css',
   \ 'coc-cssmodules',
   \ 'coc-docker',
