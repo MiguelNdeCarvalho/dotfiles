@@ -88,6 +88,7 @@ PreloadWeight=91
 [Containments][2][Applets][27][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
 title=CPU Usage (%)
+updateRateLimit=500
 
 [Containments][2][Applets][27][Configuration][ConfigDialog]
 DialogHeight=496
@@ -111,6 +112,11 @@ PreloadWeight=36
 [Containments][2][Applets][28][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
 title=Memory Usage
+updateRateLimit=500
+
+[Containments][2][Applets][28][Configuration][ConfigDialog]
+DialogHeight=496
+DialogWidth=640
 
 [Containments][2][Applets][28][Configuration][SensorColors]
 memory/physical/used=143,188,187
@@ -130,6 +136,7 @@ PreloadWeight=46
 [Containments][2][Applets][29][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
 title=CPU Temperature (ºC)
+updateRateLimit=500
 
 [Containments][2][Applets][29][Configuration][ConfigDialog]
 DialogHeight=496
@@ -163,7 +170,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][7][Configuration]
-PreloadWeight=100
+PreloadWeight=97
 SystrayContainmentId=8
 
 [Containments][2][ConfigDialog]
@@ -340,7 +347,7 @@ immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][8][Applets][30][Configuration]
-PreloadWeight=51
+PreloadWeight=48
 
 [Containments][8][Applets][35]
 immutability=1
