@@ -13,5 +13,6 @@ ScrollFactor=1
 ScrollFactor=1
 
 [Mouse]
+XLbInptPointerAcceleration=-1
 cursorSize=32
 cursorTheme=volantes_cursors
