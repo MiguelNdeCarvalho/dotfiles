@@ -136,6 +136,7 @@ ForegroundPositive=163,190,140
 ForegroundVisited=143,188,187
 
 [General]
+BrowserApplication=chromium.desktop
 ColorScheme=Nordic
 Name=Nordic
 XftHintStyle=hintslight

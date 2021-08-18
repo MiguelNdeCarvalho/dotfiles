@@ -3,6 +3,7 @@ _k_friendly_name=Activity Manager
 switch-to-activity-da6d398c-ffa3-4365-9e15-7e889e07ba34=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
+Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to Portuguese=none,none,Switch keyboard layout to Portuguese
 Switch to Next Keyboard Layout=Alt+Space,Ctrl+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
@@ -230,6 +231,15 @@ _launch=Ctrl+Space,Alt+Space\tAlt+F2\tSearch,KRunner
 [org.kde.plasma.emojier.desktop]
 _k_friendly_name=Emoji Selector
 _launch=none,Meta+.,Emoji Selector
+
+[org.kde.spectacle.desktop]
+ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window
+CurrentMonitorScreenShot=,none,Capture Current Monitor
+FullScreenScreenShot=Shift+Print,Shift+Print,Capture Entire Desktop
+RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,Capture Rectangular Region
+WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,Capture Window Under Cursor
+_k_friendly_name=Spectacle
+_launch=Print,Print,Launch Spectacle
 
 [org_kde_powerdevil]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Decrease Keyboard Brightness

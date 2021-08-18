@@ -5,4 +5,15 @@ update_info=ksmserver_update_loginMode_value.upd:ksmserver_update_loginMode_valu
 count=0
 
 [Session: saved at previous logout]
-count=0
+clientId1=101db2211a3177000162910471600000019140006
+clientId2=101db2211a3177000162910426000000019200016
+count=2
+discardCommand2[$e]=rm,$HOME/.config/session/konsole_101db2211a3177000162910426000000019200016_1629276238_86064
+program1=/usr/lib/DiscoverNotifier
+program2=/usr/bin/konsole
+restartCommand1=/usr/lib/DiscoverNotifier,-session,101db2211a3177000162910471600000019140006_1629276238_86002
+restartCommand2=/usr/bin/konsole,-session,101db2211a3177000162910426000000019200016_1629276238_86064
+restartStyleHint1=0
+restartStyleHint2=0
+userId1=mike
+userId2=mike
