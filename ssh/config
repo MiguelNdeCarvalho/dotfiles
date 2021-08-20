@@ -1,0 +1,16 @@
+Host mike-proxmox
+  HostName proxmox.mike-server.ovh
+  User root
+
+Host mike-server
+  HostName ssh.mike-server.ovh
+  User miguel
+  Port 200
+
+Host puppet
+  HostName puppet.angulosolido.pt
+  User miguel
+
+Host puppet-staging
+  HostName puppet-staging.angulosolido.pt
+  User miguel
