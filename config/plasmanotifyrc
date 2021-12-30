@@ -1,4 +1,10 @@
+[Applications][chromium]
+Seen=true
+
 [Applications][com.nextcloud.desktopclient.nextcloud]
+Seen=true
+
+[Applications][discord]
 Seen=true
 
 [Applications][mailspring]
@@ -7,5 +13,14 @@ Seen=true
 [Applications][modem-manager-gui]
 Seen=true
 
+[Applications][org.manjaro.pamac.manager]
+Seen=true
+
 [Applications][slack]
+Seen=true
+
+[Applications][telegramdesktop]
+Seen=true
+
+[Applications][thunderbird]
 Seen=true

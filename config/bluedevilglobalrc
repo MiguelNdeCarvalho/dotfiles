@@ -1,6 +1,7 @@
 [Adapters]
+00:1A:7D:DA:71:13_powered=true
 34:C9:3D:CC:17:66_powered=true
-3C:F0:11:F9:3B:65_powered=false
+3C:F0:11:F9:3B:65_powered=true
 
 [Devices]
 connectedDevices=

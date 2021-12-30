@@ -135,8 +135,12 @@ ForegroundNormal=216,222,233
 ForegroundPositive=163,190,140
 ForegroundVisited=143,188,187
 
+[DirSelect Dialog]
+DirSelectDialog Size=839,586
+History Items[$e]=file:$HOME/Nextcloud/Notes
+
 [General]
-BrowserApplication=chromium.desktop
+BrowserApplication=brave-browser.desktop
 ColorScheme=Nordic
 Name=Nordic
 XftHintStyle=hintslight
