@@ -91,3 +91,7 @@ PATH=$HOME/.local/bin:$PATH
 # Set VIM as default edito
 EDITOR=vim
 alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
+
+# DirENV hook
+eval "$(direnv hook zsh)"
+
