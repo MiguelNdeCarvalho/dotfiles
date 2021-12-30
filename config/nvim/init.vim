@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'adimit/prolog.vim'
 Plug 'pearofducks/ansible-vim'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 "Coc extensions
