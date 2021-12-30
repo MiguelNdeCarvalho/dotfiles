@@ -14,3 +14,7 @@ Host puppet
 Host puppet-staging
   HostName puppet-staging.angulosolido.pt
   User miguel
+
+Host bitbucket.org
+  HostkeyAlgorithms +ssh-rsa
+  PubkeyAcceptedKeyTypes +ssh-rsa
