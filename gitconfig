@@ -7,6 +7,6 @@
 [core]
 	editor = vim
 [diff]
-    	tool = vimdiff
+	tool = vimdiff
 [difftool]
 	prompt = false
