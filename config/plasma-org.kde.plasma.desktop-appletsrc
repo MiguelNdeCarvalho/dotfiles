@@ -20,7 +20,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][17][Configuration]
-PreloadWeight=54
+PreloadWeight=59
 
 [Containments][2][Applets][17][Configuration][Appearance]
 dateFormat=isoDate
@@ -74,7 +74,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][29][Configuration]
-PreloadWeight=32
+PreloadWeight=42
 
 [Containments][2][Applets][29][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -179,7 +179,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][45][Configuration]
-PreloadWeight=60
+PreloadWeight=70
 
 [Containments][2][Applets][45][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -190,7 +190,7 @@ DialogHeight=480
 DialogWidth=640
 
 [Containments][2][Applets][45][Configuration][SensorColors]
-memory/physical/used=143,188,187
+memory/physical/used=136,192,208
 
 [Containments][2][Applets][45][Configuration][Sensors]
 highPrioritySensorIds=["memory/physical/used"]
@@ -202,7 +202,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][7][Configuration]
-PreloadWeight=97
+PreloadWeight=100
 SystrayContainmentId=8
 
 [Containments][2][ConfigDialog]
@@ -340,7 +340,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][8][Applets][20][Configuration]
-PreloadWeight=92
+PreloadWeight=100
 
 [Containments][8][Applets][30]
 immutability=1
@@ -382,7 +382,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][8][Applets][9][Configuration]
-PreloadWeight=90
+PreloadWeight=100
 
 [Containments][8][Configuration]
 PreloadWeight=0
