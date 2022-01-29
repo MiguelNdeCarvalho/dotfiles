@@ -55,8 +55,8 @@ BorderActivateAll=9
 
 [NightColor]
 Active=true
-LatitudeAuto=38.731
-LongitudeAuto=-9.1373
+LatitudeAuto=38.5661
+LongitudeAuto=-7.8932
 
 [Plugins]
 blurEnabled=true

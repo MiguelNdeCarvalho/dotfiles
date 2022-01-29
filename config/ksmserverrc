@@ -5,19 +5,14 @@ update_info=ksmserver_update_loginMode_value.upd:ksmserver_update_loginMode_valu
 count=0
 
 [Session: saved at previous logout]
-clientId1=101db2211a3177000164060099100000022020006
-clientId2=101db2211a3177000163957194900000017030224
-clientId3=101db2211a3177000164002203000000021610026
-count=3
+clientId1=101db2211a3177000164340078500000013930006
+clientId2=101db2211a3177000164337396000000025710005
+count=2
 program1=/usr/lib/DiscoverNotifier
-program2=/usr/bin/nextcloud
-program3=thunderbird
-restartCommand1=/usr/lib/DiscoverNotifier,-session,101db2211a3177000164060099100000022020006_1640863078_995177
-restartCommand2=/usr/bin/nextcloud,-session,101db2211a3177000163957194900000017030224_1640863078_996340
-restartCommand3=/usr/lib/thunderbird/thunderbird,--sm-client-id,101db2211a3177000164002203000000021610026
+program2=/usr/bin/korgac
+restartCommand1=/usr/lib/DiscoverNotifier,-session,101db2211a3177000164340078500000013930006_1643417346_489850
+restartCommand2=/usr/bin/korgac,-session,101db2211a3177000164337396000000025710005_1643417346_489815
 restartStyleHint1=0
 restartStyleHint2=0
-restartStyleHint3=0
 userId1=mike
 userId2=mike
-userId3=mike
