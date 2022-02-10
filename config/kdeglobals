@@ -108,7 +108,7 @@ ForegroundPositive=163,190,140
 ForegroundVisited=82,148,226
 
 [Colors:View]
-BackgroundAlternate=20,26,33
+BackgroundAlternate=60,67,83
 BackgroundNormal=67,76,94
 DecorationFocus=143,188,187
 DecorationHover=143,188,187
@@ -141,7 +141,7 @@ History Items[$e]=file:$HOME/Nextcloud/Notes
 
 [General]
 BrowserApplication=brave-browser.desktop
-ColorScheme=Nordic
+ColorSchemeHash=a935e515e29025e6636b957f51c3dda99b47f986
 Name=Nordic
 XftHintStyle=hintslight
 XftSubPixel=rgb
@@ -173,7 +173,7 @@ Show Full Path=false
 Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
-Show hidden files=false
+Show hidden files=true
 Sort by=Name
 Sort directories first=true
 Sort reversed=false

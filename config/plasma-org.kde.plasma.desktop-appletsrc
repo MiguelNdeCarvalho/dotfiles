@@ -20,7 +20,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][17][Configuration]
-PreloadWeight=59
+PreloadWeight=0
 
 [Containments][2][Applets][17][Configuration][Appearance]
 dateFormat=isoDate
@@ -46,7 +46,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][27][Configuration]
-PreloadWeight=47
+PreloadWeight=0
 
 [Containments][2][Applets][27][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -74,7 +74,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][29][Configuration]
-PreloadWeight=42
+PreloadWeight=0
 
 [Containments][2][Applets][29][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -111,7 +111,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][39][Configuration]
-PreloadWeight=37
+PreloadWeight=0
 
 [Containments][2][Applets][39][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -159,7 +159,7 @@ immutability=1
 plugin=com.github.tilorenz.compact_pager
 
 [Containments][2][Applets][44][Configuration]
-PreloadWeight=90
+PreloadWeight=32
 
 [Containments][2][Applets][44][Configuration][Appearance]
 fontFamily=Exo 2
@@ -179,7 +179,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][45][Configuration]
-PreloadWeight=70
+PreloadWeight=34
 
 [Containments][2][Applets][45][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -202,7 +202,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][7][Configuration]
-PreloadWeight=100
+PreloadWeight=76
 SystrayContainmentId=8
 
 [Containments][2][ConfigDialog]
@@ -239,8 +239,12 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
+[Containments][42][ConfigDialog]
+DialogHeight=480
+DialogWidth=640
+
 [Containments][42][Configuration]
-PreloadWeight=10
+PreloadWeight=0
 
 [Containments][42][General]
 ToolBoxButtonState=topcenter
@@ -248,7 +252,8 @@ ToolBoxButtonX=896
 ToolBoxButtonY=44
 
 [Containments][42][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/wallpapers/Next/contents/images/2560x1440.png
+Image=file:///home/mike/.dotfiles/wallpapers/nord.png
+SlidePaths=/usr/share/wallpapers
 
 [Containments][43]
 ItemGeometries-1920x1200=
@@ -262,10 +267,25 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][43][Configuration]
-PreloadWeight=10
+PreloadWeight=0
 
 [Containments][43][Wallpaper][org.kde.image][General]
 Image=file:///usr/share/wallpapers/Next/contents/images/3840x2160.png
+
+[Containments][46]
+activityId=7f14589e-ba88-4fec-930a-5e2997a84cc9
+formfactor=0
+immutability=1
+lastScreen=2
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][46][Configuration]
+PreloadWeight=26
+
+[Containments][46][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/Next/contents/images/1920x1200.png
 
 [Containments][8]
 activityId=
@@ -330,7 +350,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][8][Applets][19][Configuration]
-PreloadWeight=7
+PreloadWeight=43
 
 [Containments][8][Applets][19][Configuration][General]
 showPercentage=true
@@ -340,14 +360,14 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][8][Applets][20][Configuration]
-PreloadWeight=100
+PreloadWeight=42
 
 [Containments][8][Applets][30]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][8][Applets][30][Configuration]
-PreloadWeight=92
+PreloadWeight=48
 
 [Containments][8][Applets][35]
 immutability=1
@@ -375,14 +395,14 @@ immutability=1
 plugin=org.kde.plasma.printmanager
 
 [Containments][8][Applets][41][Configuration]
-PreloadWeight=10
+PreloadWeight=0
 
 [Containments][8][Applets][9]
 immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][8][Applets][9][Configuration]
-PreloadWeight=100
+PreloadWeight=76
 
 [Containments][8][Configuration]
 PreloadWeight=0
@@ -392,5 +412,5 @@ extraItems=org.kde.plasma.mediacontroller,org.kde.plasma.volume,org.kde.plasma.n
 knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.volume,org.kde.plasma.nightcolorcontrol,org.kde.plasma.clipboard,org.kde.plasma.keyboardlayout,org.kde.plasma.notifications,org.kde.plasma.keyboardindicator,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.kdeconnect,org.kde.plasma.manage-inputmethod,org.kde.plasma.printmanager
 
 [ScreenMapping]
-itemsOnDisabledScreens=
-screenMapping=
+itemsOnDisabledScreens=0,1,desktop:/brave-fioamlaomljnnfddldnolgjjhimicggf-Default.desktop
+screenMapping=desktop:/brave-fioamlaomljnnfddldnolgjjhimicggf-Default.desktop,0

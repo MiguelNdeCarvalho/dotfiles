@@ -1,3 +1,6 @@
+[Applications][brave-browser]
+Seen=true
+
 [Applications][chromium]
 Seen=true
 
@@ -5,6 +8,9 @@ Seen=true
 Seen=true
 
 [Applications][discord]
+Seen=true
+
+[Applications][electron-mail]
 Seen=true
 
 [Applications][mailspring]
