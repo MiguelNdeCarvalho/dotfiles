@@ -92,5 +92,5 @@ PATH=$HOME/.local/bin:$PATH
 EDITOR=vim
 
 # DirENV hook
-eval "$(direnv hook zsh)"
+emulate zsh -c "$(direnv hook zsh)"
 
