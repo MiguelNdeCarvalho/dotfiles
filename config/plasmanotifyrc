@@ -7,6 +7,9 @@ Seen=true
 [Applications][com.nextcloud.desktopclient.nextcloud]
 Seen=true
 
+[Applications][com.slack.Slack]
+Seen=true
+
 [Applications][discord]
 Seen=true
 
