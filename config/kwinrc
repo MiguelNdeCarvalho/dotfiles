@@ -1,5 +1,5 @@
 [$Version]
-update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage,kwin.upd:make-translucency-effect-disabled-by-default,kwin.upd:remove-flip-switch-effect,kwin.upd:remove-cover-switch-effect,kwin.upd:remove-cubeslide-effect,kwin.upd:remove-xrender-backend,kwin.upd:enable-scale-effect-by-default
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage,kwin.upd:make-translucency-effect-disabled-by-default,kwin.upd:remove-flip-switch-effect,kwin.upd:remove-cover-switch-effect,kwin.upd:remove-cubeslide-effect,kwin.upd:remove-xrender-backend,kwin.upd:enable-scale-effect-by-default,bismuth_new_logger.upd:bismuth-new-logger
 
 [Compositing]
 GLCore=true
@@ -14,7 +14,8 @@ Id_4=2aa3f4b0-d629-4ceb-b316-e1852e4843e7
 Id_5=07c0f278-e25b-4f1c-a01b-51992cf64cda
 Id_6=439ff803-243d-4888-ad34-b760adcd054b
 Id_7=56330710-fb51-4fe7-a713-e15d16990929
-Number=7
+Id_8=c85e749a-db92-48e5-8eb5-a8fc43812203
+Number=8
 Rows=1
 
 [DrmOutputs][0655ab311e][69afc0af-a54d-5f76-825e-2c180a4d09b0]
@@ -62,6 +63,10 @@ LongitudeAuto=-9.1373
 blurEnabled=true
 kwin4_effect_translucencyEnabled=false
 slideEnabled=false
+
+[Script-bismuth]
+monocleMaximize=false
+noTileBorder=true
 
 [TabBox]
 BorderActivate=9
