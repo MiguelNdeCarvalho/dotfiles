@@ -2,25 +2,27 @@
 update_info=ksmserver_update_loginMode_value.upd:ksmserver_update_loginMode_value_default_enum
 
 [LegacySession: saved at previous logout]
-count=0
+clientMachine1=localhost
+command1=java
+count=1
 
 [Session: saved at previous logout]
-clientId1=101db2211a3177000164794282600000018230006
+clientId1=101db2211a3177000164864073600000018080005
 clientId2=101db2211a3177000164390524200000066220008
 clientId3=101db2211a3177000164717863600000016830017
-clientId4=101db2211a3177000164857027100000016520217
-clientId5=101db2211a3177000164864026700000018390010
+clientId4=101db2211a3177000164864073800000018080009
+clientId5=101db2211a3177000164880361400000018080144
 count=5
 program1=/usr/lib/DiscoverNotifier
 program2=/usr/bin/korgac
 program3=/usr/bin/nextcloud
-program4=thunderbird
-program5=pulseaudio
-restartCommand1=/usr/lib/DiscoverNotifier,-session,101db2211a3177000164794282600000018230006_1648640578_154714
-restartCommand2=/usr/bin/korgac,-session,101db2211a3177000164390524200000066220008_1648640578_154793
-restartCommand3=/usr/bin/nextcloud,-session,101db2211a3177000164717863600000016830017_1648640578_154738
-restartCommand4=/usr/lib/thunderbird/thunderbird,--sm-client-id,101db2211a3177000164857027100000016520217
-restartCommand5=
+program4=pulseaudio
+program5=thunderbird
+restartCommand1=/usr/lib/DiscoverNotifier,-session,101db2211a3177000164864073600000018080005_1649021094_502179
+restartCommand2=/usr/bin/korgac,-session,101db2211a3177000164390524200000066220008_1649021094_502206
+restartCommand3=/usr/bin/nextcloud,-session,101db2211a3177000164717863600000016830017_1649021094_502590
+restartCommand4=
+restartCommand5=/usr/lib/thunderbird/thunderbird,--sm-client-id,101db2211a3177000164880361400000018080144
 restartStyleHint1=0
 restartStyleHint2=0
 restartStyleHint3=0
