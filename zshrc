@@ -81,7 +81,37 @@ export ZSH="/usr/share/oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-plugins=(git)
+plugins=(
+  adb
+  ansible
+  archlinux
+  aws
+  command-not-found
+  common-aliases
+  copyfile
+  docker
+  docker-compose
+  extract
+  gcloud
+  gh
+  git
+  gitignore
+  golang
+  helm
+  history
+  kubectl
+  node
+  pip
+  rsync
+  ssh-agent
+  sudo
+  systemadmin
+  systemd
+  terraform
+  tmux
+  vagrant
+  vscode
+)
 
 source $ZSH/oh-my-zsh.sh
 
