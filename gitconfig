@@ -1,7 +1,7 @@
 [user]
 	name = MiguelNdeCarvalho
 	email = geral@miguelndecarvalho.pt
-	signingkey = 2B42D23ECD929EF3
+	signingkey = 0391C111C408C6F2
 [commit]
 	gpgsign = true
 [core]
