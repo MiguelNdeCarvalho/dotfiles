@@ -6,6 +6,3 @@ D4:54:8B:0A:DF:C4_powered=true
 
 [Devices]
 connectedDevices=
-
-[Global]
-bluetoothBlocked=true

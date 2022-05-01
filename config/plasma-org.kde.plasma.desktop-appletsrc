@@ -20,11 +20,11 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][17][Configuration]
-PreloadWeight=0
+PreloadWeight=17
 
 [Containments][2][Applets][17][Configuration][Appearance]
 dateFormat=isoDate
-selectedTimeZones=America/Los_Angeles,Local,UTC+00:00,Europe/Bucharest,Europe/Moscow
+selectedTimeZones=America/Los_Angeles,UTC+00:00,Local,Europe/Bucharest,Europe/Moscow
 use24hFormat=2
 
 [Containments][2][Applets][17][Configuration][ConfigDialog]
@@ -159,7 +159,7 @@ immutability=1
 plugin=com.github.tilorenz.compact_pager
 
 [Containments][2][Applets][44][Configuration]
-PreloadWeight=32
+PreloadWeight=24
 
 [Containments][2][Applets][44][Configuration][Appearance]
 fontFamily=Exo 2
@@ -179,7 +179,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][45][Configuration]
-PreloadWeight=34
+PreloadWeight=61
 
 [Containments][2][Applets][45][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -248,8 +248,10 @@ PreloadWeight=0
 
 [Containments][42][General]
 ToolBoxButtonState=topcenter
-ToolBoxButtonX=896
-ToolBoxButtonY=44
+ToolBoxButtonX=561
+ToolBoxButtonY=42
+positions=1,18,desktop:/staging-basic-auth.yml,0,4,desktop:/staging-secrets.zip,0,5,desktop:/aws-enrichment,0,0,desktop:/brave-eochohcfnnoodncdbfnnfnhihkppdjka-Default.desktop,0,1,desktop:/pupil-cloud-env-vars.yml,0,2,desktop:/pupil-cloud-key-files.yml,0,3
+sortMode=-1
 
 [Containments][42][Wallpaper][org.kde.image][General]
 Image=file:///home/mike/.dotfiles/wallpapers/nord.png
@@ -286,6 +288,15 @@ PreloadWeight=26
 
 [Containments][46][Wallpaper][org.kde.image][General]
 Image=file:///usr/share/wallpapers/Next/contents/images/1920x1200.png
+
+[Containments][47]
+activityId=7f14589e-ba88-4fec-930a-5e2997a84cc9
+formfactor=0
+immutability=1
+lastScreen=3
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
 
 [Containments][8]
 activityId=
@@ -412,5 +423,5 @@ extraItems=org.kde.plasma.mediacontroller,org.kde.plasma.volume,org.kde.plasma.n
 knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.volume,org.kde.plasma.nightcolorcontrol,org.kde.plasma.clipboard,org.kde.plasma.keyboardlayout,org.kde.plasma.notifications,org.kde.plasma.keyboardindicator,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.devicenotifier,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.kdeconnect,org.kde.plasma.manage-inputmethod,org.kde.plasma.printmanager
 
 [ScreenMapping]
-itemsOnDisabledScreens=0,1,desktop:/brave-fioamlaomljnnfddldnolgjjhimicggf-Default.desktop
-screenMapping=desktop:/brave-fioamlaomljnnfddldnolgjjhimicggf-Default.desktop,0
+itemsOnDisabledScreens=
+screenMapping=desktop:/pupil-cloud-env-vars.yml,0,desktop:/staging-basic-auth.yml,0,desktop:/aws-enrichment,0,desktop:/staging-secrets.zip,0,desktop:/pupil-cloud-key-files.yml,0,desktop:/brave-eochohcfnnoodncdbfnnfnhihkppdjka-Default.desktop,0
