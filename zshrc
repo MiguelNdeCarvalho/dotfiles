@@ -13,6 +13,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="/usr/share/oh-my-zsh"
+export ZSH_CUSTOM="/usr/share/zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -111,6 +112,7 @@ plugins=(
   tmux
   vagrant
   vscode
+  zsh-autosuggestions
 )
 
 # Autostart TMUX
