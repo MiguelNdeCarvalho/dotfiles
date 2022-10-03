@@ -20,11 +20,11 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][17][Configuration]
-PreloadWeight=17
+PreloadWeight=100
 
 [Containments][2][Applets][17][Configuration][Appearance]
 dateFormat=isoDate
-selectedTimeZones=America/Los_Angeles,UTC+00:00,Local,Europe/Bucharest,Europe/Moscow
+selectedTimeZones=America/Los_Angeles,UTC+00:00,Local,Europe/Bucharest,Europe/Moscow,Asia/Jakarta
 use24hFormat=2
 
 [Containments][2][Applets][17][Configuration][ConfigDialog]
@@ -46,7 +46,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][27][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][2][Applets][27][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -111,7 +111,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][39][Configuration]
-PreloadWeight=0
+PreloadWeight=10
 
 [Containments][2][Applets][39][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -159,7 +159,7 @@ immutability=1
 plugin=com.github.tilorenz.compact_pager
 
 [Containments][2][Applets][44][Configuration]
-PreloadWeight=24
+PreloadWeight=75
 
 [Containments][2][Applets][44][Configuration][Appearance]
 fontFamily=Exo 2
@@ -179,7 +179,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][45][Configuration]
-PreloadWeight=61
+PreloadWeight=54
 
 [Containments][2][Applets][45][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -202,7 +202,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][7][Configuration]
-PreloadWeight=76
+PreloadWeight=100
 SystrayContainmentId=8
 
 [Containments][2][ConfigDialog]
@@ -230,6 +230,7 @@ ToolBoxButtonY=44
 ItemGeometries-1920x1080=
 ItemGeometries-1920x1200=
 ItemGeometries-2560x1440=
+ItemGeometries-3840x2160=
 ItemGeometriesHorizontal=
 activityId=7f14589e-ba88-4fec-930a-5e2997a84cc9
 formfactor=0
@@ -250,7 +251,7 @@ PreloadWeight=0
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=561
 ToolBoxButtonY=42
-positions=1,18,desktop:/staging-basic-auth.yml,0,4,desktop:/staging-secrets.zip,0,5,desktop:/aws-enrichment,0,0,desktop:/brave-eochohcfnnoodncdbfnnfnhihkppdjka-Default.desktop,0,1,desktop:/pupil-cloud-env-vars.yml,0,2,desktop:/pupil-cloud-key-files.yml,0,3
+positions={"1920x1200":["1"\\,"36"\\,"desktop:/tennis"\\,"0"\\,"0"]\\,"1920x1080":[]\\,"3840x2160":[]}
 sortMode=-1
 
 [Containments][42][Wallpaper][org.kde.image][General]
@@ -258,7 +259,9 @@ Image=file:///home/mike/.dotfiles/wallpapers/nord.png
 SlidePaths=/usr/share/wallpapers
 
 [Containments][43]
+ItemGeometries-1920x1080=
 ItemGeometries-1920x1200=
+ItemGeometries-3840x2160=
 ItemGeometriesHorizontal=
 activityId=7f14589e-ba88-4fec-930a-5e2997a84cc9
 formfactor=0
@@ -284,12 +287,15 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][46][Configuration]
-PreloadWeight=26
+PreloadWeight=0
 
 [Containments][46][Wallpaper][org.kde.image][General]
 Image=file:///usr/share/wallpapers/Next/contents/images/1920x1200.png
 
 [Containments][47]
+ItemGeometries-1920x1080=
+ItemGeometries-3840x2160=
+ItemGeometriesHorizontal=
 activityId=7f14589e-ba88-4fec-930a-5e2997a84cc9
 formfactor=0
 immutability=1
@@ -297,6 +303,138 @@ lastScreen=3
 location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
+
+[Containments][47][ConfigDialog]
+DialogHeight=780
+DialogWidth=1040
+
+[Containments][47][Configuration]
+PreloadWeight=0
+
+[Containments][47][Wallpaper][org.kde.image][General]
+Image=file:///home/mike/.dotfiles/wallpapers/nord.png
+SlidePaths=/usr/share/wallpapers
+
+[Containments][49]
+activityId=
+formfactor=2
+immutability=1
+lastScreen=-1
+location=3
+plugin=org.kde.plasma.private.systemtray
+wallpaperplugin=org.kde.image
+
+[Containments][49][Applets][50]
+immutability=1
+plugin=org.kde.plasma.devicenotifier
+
+[Containments][49][Applets][50][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][51]
+immutability=1
+plugin=org.kde.plasma.manage-inputmethod
+
+[Containments][49][Applets][51][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][52]
+immutability=1
+plugin=org.kde.plasma.notifications
+
+[Containments][49][Applets][52][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][53]
+immutability=1
+plugin=org.kde.plasma.keyboardlayout
+
+[Containments][49][Applets][53][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][54]
+immutability=1
+plugin=org.kde.plasma.keyboardindicator
+
+[Containments][49][Applets][54][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][55]
+immutability=1
+plugin=org.kde.plasma.vault
+
+[Containments][49][Applets][55][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][56]
+immutability=1
+plugin=org.kde.plasma.printmanager
+
+[Containments][49][Applets][56][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][57]
+immutability=1
+plugin=org.kde.plasma.nightcolorcontrol
+
+[Containments][49][Applets][57][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][58]
+immutability=1
+plugin=org.kde.plasma.clipboard
+
+[Containments][49][Applets][58][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][59]
+immutability=1
+plugin=org.kde.plasma.volume
+
+[Containments][49][Applets][59][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][60]
+immutability=1
+plugin=org.kde.kdeconnect
+
+[Containments][49][Applets][60][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][64]
+immutability=1
+plugin=org.kde.plasma.battery
+
+[Containments][49][Applets][64][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][65]
+immutability=1
+plugin=org.kde.plasma.networkmanagement
+
+[Containments][49][Applets][65][Configuration]
+PreloadWeight=10
+
+[Containments][49][Applets][66]
+immutability=1
+plugin=org.kde.plasma.bluetooth
+
+[Containments][49][Applets][66][Configuration]
+PreloadWeight=0
+
+[Containments][49][Applets][67]
+immutability=1
+plugin=org.kde.plasma.mediacontroller
+
+[Containments][49][Applets][67][Configuration]
+PreloadWeight=0
+
+[Containments][49][Configuration]
+PreloadWeight=10
+
+[Containments][49][General]
+extraItems=org.kde.plasma.bluetooth,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.keyboardindicator,org.kde.plasma.vault,org.kde.plasma.printmanager,org.kde.plasma.mediacontroller,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.volume,org.kde.kdeconnect
+knownItems=org.kde.plasma.bluetooth,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.keyboardindicator,org.kde.plasma.vault,org.kde.plasma.printmanager,org.kde.plasma.mediacontroller,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.volume,org.kde.kdeconnect
 
 [Containments][8]
 activityId=
@@ -319,7 +457,7 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][8][Applets][11][Configuration]
-PreloadWeight=0
+PreloadWeight=100
 
 [Containments][8][Applets][12]
 immutability=1
@@ -333,7 +471,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][8][Applets][13][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][8][Applets][14]
 immutability=1
@@ -354,14 +492,14 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][8][Applets][16][Configuration]
-PreloadWeight=0
+PreloadWeight=100
 
 [Containments][8][Applets][19]
 immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][8][Applets][19][Configuration]
-PreloadWeight=43
+PreloadWeight=80
 
 [Containments][8][Applets][19][Configuration][General]
 showPercentage=true
@@ -371,14 +509,14 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][8][Applets][20][Configuration]
-PreloadWeight=42
+PreloadWeight=100
 
 [Containments][8][Applets][30]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][8][Applets][30][Configuration]
-PreloadWeight=48
+PreloadWeight=100
 
 [Containments][8][Applets][35]
 immutability=1
@@ -392,7 +530,7 @@ immutability=1
 plugin=org.kde.kdeconnect
 
 [Containments][8][Applets][37][Configuration]
-PreloadWeight=0
+PreloadWeight=25
 
 [Containments][8][Applets][40]
 immutability=1
@@ -413,7 +551,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][8][Applets][9][Configuration]
-PreloadWeight=76
+PreloadWeight=100
 
 [Containments][8][Configuration]
 PreloadWeight=0
@@ -424,4 +562,4 @@ knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.volume,org.kde.plasma.n
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/pupil-cloud-env-vars.yml,0,desktop:/staging-basic-auth.yml,0,desktop:/aws-enrichment,0,desktop:/staging-secrets.zip,0,desktop:/pupil-cloud-key-files.yml,0,desktop:/brave-eochohcfnnoodncdbfnnfnhihkppdjka-Default.desktop,0
+screenMapping=
