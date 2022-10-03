@@ -1533,8 +1533,8 @@
   #
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_environment() {
-    if [[ -n $ENVIRONMENT ]]; then
-      p10k segment -f "#8956c4" -i '' -t "${ENVIRONMENT}"
+    if [[ -n $TERRABUTLER_ENV ]]; then
+      p10k segment -f "#8956c4" -i '' -t "${TERRABUTLER_ENV}"
     fi
   }
 
