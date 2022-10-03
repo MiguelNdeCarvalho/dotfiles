@@ -19,6 +19,6 @@ ScrollFactor=1
 ScrollFactor=1
 
 [Mouse]
-XLbInptPointerAcceleration=-1
-cursorSize=32
-cursorTheme=volantes_cursors
+X11LibInputXAccelProfileFlat=false
+XLbInptPointerAcceleration=-0.8
+cursorTheme=breeze_cursors
