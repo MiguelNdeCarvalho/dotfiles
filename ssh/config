@@ -1,11 +1,14 @@
 Host mike-proxmox
-  HostName proxmox.mike-server.ovh
+  HostName mike-proxmox
   User root
 
 Host mike-server
-  HostName ssh.mike-server.ovh
-  User miguel
-  Port 200
+  HostName mike-server
+  User mike
+
+Host mike-pi
+  HostName mike-pi
+  User mike
 
 Host puppet
   HostName puppet.angulosolido.pt
