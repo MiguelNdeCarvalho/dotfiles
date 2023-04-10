@@ -21,6 +21,8 @@ plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][17][Configuration]
 PreloadWeight=100
+popupHeight=400
+popupWidth=720
 
 [Containments][2][Applets][17][Configuration][Appearance]
 dateFormat=isoDate
@@ -46,7 +48,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][27][Configuration]
-PreloadWeight=5
+PreloadWeight=15
 
 [Containments][2][Applets][27][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -74,7 +76,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][29][Configuration]
-PreloadWeight=0
+PreloadWeight=15
 
 [Containments][2][Applets][29][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -111,7 +113,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][39][Configuration]
-PreloadWeight=10
+PreloadWeight=15
 
 [Containments][2][Applets][39][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -159,7 +161,7 @@ immutability=1
 plugin=com.github.tilorenz.compact_pager
 
 [Containments][2][Applets][44][Configuration]
-PreloadWeight=75
+PreloadWeight=100
 
 [Containments][2][Applets][44][Configuration][Appearance]
 fontFamily=Exo 2
@@ -179,7 +181,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][2][Applets][45][Configuration]
-PreloadWeight=54
+PreloadWeight=100
 
 [Containments][2][Applets][45][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -251,7 +253,7 @@ PreloadWeight=0
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=561
 ToolBoxButtonY=42
-positions={"1920x1200":["1"\\,"36"\\,"desktop:/tennis"\\,"0"\\,"0"]\\,"1920x1080":[]\\,"3840x2160":[]}
+positions={"1920x1200":[]\\,"1920x1080":[]\\,"3840x2160":[]\\,"1600x1200":[""]}
 sortMode=-1
 
 [Containments][42][Wallpaper][org.kde.image][General]
@@ -271,11 +273,16 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
+[Containments][43][ConfigDialog]
+DialogHeight=480
+DialogWidth=640
+
 [Containments][43][Configuration]
 PreloadWeight=0
 
 [Containments][43][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/wallpapers/Next/contents/images/3840x2160.png
+Image=/home/mike/.dotfiles/wallpapers/nord.png
+SlidePaths=/usr/share/wallpapers/
 
 [Containments][46]
 activityId=7f14589e-ba88-4fec-930a-5e2997a84cc9
@@ -293,6 +300,7 @@ PreloadWeight=0
 Image=file:///usr/share/wallpapers/Next/contents/images/1920x1200.png
 
 [Containments][47]
+ItemGeometries-1600x1200=
 ItemGeometries-1920x1080=
 ItemGeometries-3840x2160=
 ItemGeometriesHorizontal=
@@ -406,14 +414,14 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][49][Applets][64][Configuration]
-PreloadWeight=10
+PreloadWeight=2
 
 [Containments][49][Applets][65]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][49][Applets][65][Configuration]
-PreloadWeight=10
+PreloadWeight=0
 
 [Containments][49][Applets][66]
 immutability=1
@@ -436,6 +444,24 @@ PreloadWeight=10
 extraItems=org.kde.plasma.bluetooth,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.keyboardindicator,org.kde.plasma.vault,org.kde.plasma.printmanager,org.kde.plasma.mediacontroller,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.volume,org.kde.kdeconnect
 knownItems=org.kde.plasma.bluetooth,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.notifications,org.kde.plasma.keyboardlayout,org.kde.plasma.keyboardindicator,org.kde.plasma.vault,org.kde.plasma.printmanager,org.kde.plasma.mediacontroller,org.kde.plasma.nightcolorcontrol,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.volume,org.kde.kdeconnect
 
+[Containments][68]
+activityId=7f14589e-ba88-4fec-930a-5e2997a84cc9
+formfactor=0
+immutability=1
+lastScreen=4
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][69]
+activityId=7f14589e-ba88-4fec-930a-5e2997a84cc9
+formfactor=0
+immutability=1
+lastScreen=5
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
 [Containments][8]
 activityId=
 formfactor=2
@@ -443,6 +469,8 @@ immutability=1
 lastScreen=0
 location=3
 plugin=org.kde.plasma.private.systemtray
+popupHeight=384
+popupWidth=384
 wallpaperplugin=org.kde.image
 
 [Containments][8][Applets][10]
@@ -471,7 +499,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][8][Applets][13][Configuration]
-PreloadWeight=5
+PreloadWeight=20
 
 [Containments][8][Applets][14]
 immutability=1
@@ -499,7 +527,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][8][Applets][19][Configuration]
-PreloadWeight=80
+PreloadWeight=100
 
 [Containments][8][Applets][19][Configuration][General]
 showPercentage=true
@@ -523,7 +551,7 @@ immutability=1
 plugin=org.kde.plasma.mediacontroller
 
 [Containments][8][Applets][35][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][8][Applets][37]
 immutability=1
