@@ -173,7 +173,7 @@
     "temperature": {
         "thermal-zone": 1,
         "format": " {temperatureC}°C",
-        "critical-threshold": 70,
+        "critical-threshold": 95,
         "format-critical": " {temperatureC}°C"
     }
 }
