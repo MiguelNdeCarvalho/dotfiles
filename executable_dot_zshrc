@@ -45,7 +45,3 @@ alias cat="bat"
 # kubectl completations
 source <(kubectl completion zsh)
 compdef kubecolor=kubectl
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
