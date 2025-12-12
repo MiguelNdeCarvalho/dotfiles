@@ -1,0 +1,12 @@
+[user]
+	name = MiguelNdeCarvalho
+	email = geral@miguelndecarvalho.pt
+	signingkey = 0391C111C408C6F2
+[commit]
+	gpgsign = true
+[core]
+	editor = nvim
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false

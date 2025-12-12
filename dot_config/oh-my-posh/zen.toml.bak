@@ -1,0 +1,102 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+version = 3
+
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+
+[palette]
+  blue = "#8caaee"        # Catppuccin Frappé - Blue (for path)
+  cyan = "#89dceb"        # Catppuccin Frappé - Teal (closest to cyan for git)
+  magenta = "#ca9ee6"     # Catppuccin Frappé - Mauve (for variable env)
+  yellow = "#fab387"      # Catppuppcin Frappé - Peach (for execution time)
+  green = "#a6e3a1"       # Catppuccin Frappé - Green (for success exit code)
+  red = "#e78282"         # Catppuccin Frappé - Red (for error exit code)
+  text = "#6cb8f1"        # Catppuccin Frappé - Text (general fallback)
+  subtext0 = "#a5adce"    # Catppuccin Frappé - Subtext 0
+  subtext1 = "#b5fe2"     # Catppuccin Frappé - Subtext 1
+  rosewater = "#f2d5cf"   # Catppuccin Frappé - Rosewater
+  flamingo = "#eebeee"    # Catppuccin Frappé - Flamingo
+  mauve = "#ca9ee6"       # Catppuccin Frappé - Mauve (redundant with magenta, but harmless)
+
+[secondary_prompt]
+  template = '❯❯ '
+  foreground = 'p:green'
+  background = 'transparent'
+
+[transient_prompt]
+  template = '❯ '
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}p:red{{end}}', '{{if eq .Code 0}}p:green{{end}}']
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    template = '{{ .Path }}'
+    foreground = 'p:blue'
+    background = 'transparent'
+    type = 'path'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      style = 'full'
+
+  [[blocks.segments]]
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+    foreground = 'p:cyan'
+    background = 'transparent'
+    type = 'git'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      cache_duration = 'none'
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    template = '{{ .Env.TERRABUTLER_ENV }}'
+    foreground = 'p:magenta'
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+
+  [[blocks.segments]]
+    template = '{{ .FormattedMs }}'
+    foreground = 'p:yellow'
+    background = 'transparent'
+    type = 'executiontime'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      threshold = 5000
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    template = '❯'
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+    foreground_templates = ['{{if gt .Code 0}}p:red{{end}}', '{{if eq .Code 0}}p:green{{end}}']
+
+    [blocks.segments.properties]
+      cache_duration = 'none'

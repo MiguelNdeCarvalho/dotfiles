@@ -1,0 +1,51 @@
+# Set Historic file
+HISTSIZE=999999999
+HISTFILE="$HOME/.zsh_history"
+SAVEHIST=$HISTSIZE
+
+# Add mise
+eval "$(mise activate zsh --shims)"
+eval "$(mise activate zsh)"
+
+# Alias
+alias vim=nvim
+
+# Set completation
+autoload -Uz compinit && compinit
+
+# Start Oh My Posh
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/zen.toml)"
+
+# Start direnv
+eval "$(direnv hook zsh)"
+
+# Add Zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
+# Add FZF
+eval "$(fzf --zsh)"
+
+# Add Atuin
+eval "$(atuin init zsh)"
+
+# Add Terrabutler if in a project
+# if [ -z ${TERRABUTLER_ENABLE+x} ]; then false; else eval "$(_TERRABUTLER_COMPLETE=zsh_source terrabutler)"; fi
+if [[ -v TERRABUTLER_ENABLE ]]; then eval "$(_TERRABUTLER_COMPLETE=zsh_source terrabutler)"; fi
+
+# Some ENV variables
+export EDITOR=nvim
+
+# Some Alias
+alias kubectl=kubecolor
+alias k=kubecolor
+alias ..="cd .."
+alias l="eza -lha --icons --git"
+alias cat="bat"
+
+# kubectl completations
+source <(kubectl completion zsh)
+compdef kubecolor=kubectl
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
