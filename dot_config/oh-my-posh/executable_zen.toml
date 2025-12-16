@@ -3,78 +3,84 @@ version = 4
 final_space = true
 
 [palette]
-  blue = '#8caaee'
-  cyan = '#89dceb'
-  flamingo = '#eebeee'
-  green = '#a6e3a1'
-  magenta = '#ca9ee6'
-  mauve = '#ca9ee6'
-  red = '#e78282'
-  rosewater = '#f2d5cf'
-  subtext0 = '#a5adce'
-  subtext1 = '#b5fe2'
-  text = '#6cb8f1'
-  yellow = '#fab387'
+blue = '#8caaee'
+cyan = '#89dceb'
+flamingo = '#eebeee'
+green = '#a6e3a1'
+magenta = '#ca9ee6'
+mauve = '#ca9ee6'
+red = '#e78282'
+rosewater = '#f2d5cf'
+subtext0 = '#a5adce'
+subtext1 = '#b5fe2'
+text = '#6cb8f1'
+yellow = '#fab387'
 
 [secondary_prompt]
-  template = '❯❯ '
-  foreground = 'p:green'
-  background = 'transparent'
+template = '❯❯ '
+foreground = 'p:green'
+background = 'transparent'
 
 [transient_prompt]
-  template = '❯ '
-  background = 'transparent'
-  foreground_templates = ['{{if gt .Code 0}}p:red{{end}}', '{{if eq .Code 0}}p:green{{end}}']
+template = '❯ '
+background = 'transparent'
+foreground_templates = [
+  '{{if gt .Code 0}}p:red{{end}}',
+  '{{if eq .Code 0}}p:green{{end}}',
+]
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'prompt'
+alignment = 'left'
+newline = true
 
-  [[blocks.segments]]
-    template = '{{ .Path }}'
-    foreground = 'p:blue'
-    background = 'transparent'
-    type = 'path'
-    style = 'plain'
+[[blocks.segments]]
+template = '{{ .Path }}'
+foreground = 'p:blue'
+background = 'transparent'
+type = 'path'
+style = 'plain'
 
-  [[blocks.segments]]
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
-    foreground = 'p:cyan'
-    background = 'transparent'
-    type = 'git'
-    style = 'plain'
-
-[[blocks]]
-  type = 'prompt'
-  alignment = 'right'
-
-  [[blocks.segments]]
-    template = '{{ .Env.TERRABUTLER_ENV }}'
-    foreground = 'p:magenta'
-    background = 'transparent'
-    type = 'text'
-    style = 'plain'
+[[blocks.segments]]
+template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+foreground = 'p:cyan'
+background = 'transparent'
+type = 'git'
+style = 'plain'
 
 [[blocks]]
-  type = 'rprompt'
-  overflow = 'hidden'
+type = 'prompt'
+alignment = 'right'
 
-  [[blocks.segments]]
-    template = '{{ .FormattedMs }}'
-    foreground = 'p:yellow'
-    background = 'transparent'
-    type = 'executiontime'
-    style = 'plain'
+[[blocks.segments]]
+template = '{{ .Env.TERRABUTLER_ENV }}'
+foreground = 'p:magenta'
+background = 'transparent'
+type = 'text'
+style = 'plain'
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'rprompt'
+overflow = 'hidden'
 
-  [[blocks.segments]]
-    template = '❯'
-    background = 'transparent'
-    type = 'text'
-    style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}p:red{{end}}', '{{if eq .Code 0}}p:green{{end}}']
+[[blocks.segments]]
+template = '{{ .FormattedMs }}'
+foreground = 'p:yellow'
+background = 'transparent'
+type = 'executiontime'
+style = 'plain'
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+[[blocks.segments]]
+template = '❯'
+background = 'transparent'
+type = 'text'
+style = 'plain'
+foreground_templates = [
+  '{{if gt .Code 0}}p:red{{end}}',
+  '{{if eq .Code 0}}p:green{{end}}',
+]
