@@ -1,0 +1,34 @@
+[general]
+destination = "$HOME/.config/hypr/monitors.conf"
+
+[power_events]
+
+[power_events.dbus_query_object]
+path = "/org/freedesktop/UPower/devices/line_power_ACAD"
+
+[[power_events.dbus_signal_match_rules]]
+object_path = "/org/freedesktop/UPower/devices/line_power_ACAD"
+
+
+[profiles.docked]
+config_file = "/home/mike/.config/hyprdynamicmonitors/hyprconfigs/docked.go.tmpl"
+config_file_type = "template"
+[profiles.docked.conditions]
+
+[[profiles.docked.conditions.required_monitors]]
+description = "Samsung Display Corp. ATNA60DL01-0"
+monitor_tag = "monitor0"
+
+[[profiles.docked.conditions.required_monitors]]
+description = "Samsung Electric Company Odyssey G93SC HNTX700240"
+monitor_tag = "monitor1"
+
+
+[profiles.non_docked]
+config_file = "/home/mike/.config/hyprdynamicmonitors/hyprconfigs/non_docked.go.tmpl"
+config_file_type = "template"
+[profiles.non_docked.conditions]
+
+[[profiles.non_docked.conditions.required_monitors]]
+description = "Samsung Display Corp. ATNA60DL01-0"
+monitor_tag = "monitor0"
