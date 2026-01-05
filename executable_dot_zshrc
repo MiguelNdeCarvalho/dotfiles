@@ -39,7 +39,8 @@ export EDITOR=nvim
 alias kubectl=kubecolor
 alias k=kubecolor
 alias ..="cd .."
-alias l="eza -lha --icons --git"
+alias l="eza --icons --git"
+alias ls="eza -lha --icons --git"
 alias cat="bat"
 
 # kubectl completations
