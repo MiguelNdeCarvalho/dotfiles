@@ -5,11 +5,11 @@ single_click_activation = true  # activate items with a single click opposed to 
 selection_wrap = false          # wrap list if at bottom or top
 global_argument_delimiter = "#" # query: firefox#https://benz.dev => part after delimiter will be ignored when querying. this should be the same as in the elephant config
 exact_search_prefix = "'"       # disable fuzzy searching
-theme = "catppuccin-frappe"               # theme to use
-disable_mouse = false           # disable mouse (on input and list only)
+theme = "catppuccin-frappe"     # theme to use
+disable_mouse = true            # disable mouse (on input and list only)
 debug = false                   # enables debug printing for some stuff, f.e. keybinds
 page_jump_items = 10            # number of items to skip with Page Up/Down
-hide_quick_activation = false   # globally hide the quick activation buttons
+hide_quick_activation = true    # globally hide the quick activation buttons
 hide_action_hints = false       # globally hide the action hints
 hide_action_hints_dmenu = true  # hide the actions hints for dmenu
 hide_return_action = false      # hide actions that are bound to Return
