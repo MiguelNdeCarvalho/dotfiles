@@ -1,16 +1,16 @@
-@define-color window_bg_color #303446;
-@define-color accent_bg_color #8caaee;
-@define-color theme_fg_color #c6d0f5;
-@define-color error_bg_color #e78284;
-@define-color error_fg_color #303446;
+@define-color window_bg_color #303446; /* Catppuccin Frappé: Base */
+@define-color accent_bg_color #8caaee; /* Catppuccin Frappé: Blue (for links, accents, selection) */
+@define-color theme_fg_color #c6d0f5;  /* Catppuccin Frappé: Text (for body copy, main headline) */
+@define-color error_bg_color #e78284;  /* Catppuccin Frappé: Red (for errors) */
+@define-color error_fg_color #303446;  /* Catppuccin Frappé: Base (for text on accent/error background) */
 
 * {
   all: unset;
 }
 
 popover {
-  background: @window_bg_color;
-  border: 1px solid @accent_bg_color;
+  background: #292c3c; /* Catppuccin Frappé: Mantle (A secondary pane color, for popovers/cards) */
+  border: 1px solid #737994; /* Catppuccin Frappé: Overlay1 (A subtle boundary color) */
   border-radius: 18px;
   padding: 10px;
 }
@@ -18,7 +18,6 @@ popover {
 .normal-icons {
   -gtk-icon-size: 16px;
 }
-
 .large-icons {
   -gtk-icon-size: 32px;
 }
@@ -31,16 +30,16 @@ scrollbar {
   box-shadow:
     0 19px 38px rgba(0, 0, 0, 0.3),
     0 15px 12px rgba(0, 0, 0, 0.22);
-  background: @window_bg_color;
+  background: @window_bg_color; /* Catppuccin Frappé: Base */
   padding: 20px;
   border-radius: 20px;
-  border: 1px solid @accent_bg_color;
+  border: 1px solid #51576d; /* Catppuccin Frappé: Surface1 (for a subtle border on the main box) */
 }
 
 .preview-box,
 .elephant-hint,
 .placeholder {
-  color: @theme_fg_color;
+  color: @theme_fg_color; /* Catppuccin Frappé: Text */
 }
 
 .box {
@@ -51,25 +50,25 @@ scrollbar {
 }
 
 .input placeholder {
-  opacity: 0.7;
-  color: #a5adce;
+  opacity: 0.8; /* Increased for better visibility */
+  color: #a5adce; /* Catppuccin Frappé: Subtext0 (for subtle/placeholder text) */
 }
 
 .input selection {
-  background: alpha(@accent_bg_color, 0.4);
+  background: alpha(@accent_bg_color, 0.3); /* Catppuccin Frappé: Blue (20-30% opacity suggested for selection background, using 30%) */
 }
 
 .input {
-  caret-color: @theme_fg_color;
-  background: lighten(@window_bg_color, 0.05);
+  caret-color: #f2d5cf; /* Catppuccin Frappé: Rosewater (for cursor) */
+  background: #232634; /* Catppuccin Frappé: Crust (for secondary panes/input fields) */
   padding: 10px;
-  color: @theme_fg_color;
+  color: @theme_fg_color; /* Catppuccin Frappé: Text */
   border-radius: 10px;
 }
 
 .input:focus,
 .input:active {
-  border: 1px solid @accent_bg_color;
+  border: 1px solid @accent_bg_color; /* Catppuccin Frappé: Blue (active accents) */
 }
 
 .content-container {
@@ -82,7 +81,7 @@ scrollbar {
 }
 
 .list {
-  color: @theme_fg_color;
+  color: @theme_fg_color; /* Catppuccin Frappé: Text */
 }
 
 child {
@@ -94,14 +93,14 @@ child {
 }
 
 .item-quick-activation {
-  background: alpha(@accent_bg_color, 0.25);
+  background: alpha(@accent_bg_color, 0.25); /* Catppuccin Frappé: Blue (25% opacity) */
   border-radius: 5px;
   padding: 10px;
 }
 
 /* child:hover .item-box, */
 child:selected .item-box {
-  background: alpha(@accent_bg_color, 0.25);
+  background: alpha(@accent_bg_color, 0.25); /* Catppuccin Frappé: Blue (25% opacity) */
 }
 
 .item-text-box {
@@ -109,26 +108,26 @@ child:selected .item-box {
 
 .item-subtext {
   font-size: 12px;
-  opacity: 0.8;
-  color: #a5adce;
+  opacity: 0.9; /* Improved visibility as it's secondary information */
+  color: #a5adce; /* Catppuccin Frappé: Subtext0 (for sub-headlines, labels) */
 }
 
 .providerlist .item-subtext {
   font-size: unset;
-  opacity: 0.9;
-  color: #b5bfe2;
+  opacity: 1; /* Fully opaque for clearer labels */
+  color: #b5bfe2; /* Catppuccin Frappé: Subtext1 (slightly brighter subtext) */
 }
 
 .item-image-text {
   font-size: 28px;
+  color: @theme_fg_color; /* Catppuccin Frappé: Text */
 }
 
 .preview {
-  border: 1px solid #51576d;
-  /* padding: 10px; */
+  border: 1px solid #626880; /* Catppuccin Frappé: Surface2 (for a slightly more prominent border) */
   border-radius: 10px;
-  color: @theme_fg_color;
-  background: #232634;
+  color: @theme_fg_color; /* Catppuccin Frappé: Text */
+  background: #232634; /* Catppuccin Frappé: Crust (for secondary panes, good for preview background) */
 }
 
 .calc .item-text {
@@ -136,32 +135,32 @@ child:selected .item-box {
 }
 
 .calc .item-subtext {
-  color: #a5adce;
+  color: #a5adce; /* Catppuccin Frappé: Subtext0 */
 }
 
 .symbols .item-image {
   font-size: 24px;
-  color: #f2d5cf;
+  color: #babbf1; /* Catppuccin Frappé: Lavender (for distinct symbols/icons) */
 }
 
 .todo.done .item-text-box {
-  opacity: 0.5;
-  color: #a5adce;
+  opacity: 0.5; /* Keeping original fade effect */
+  color: #a5adce; /* Catppuccin Frappé: Subtext0 (dimmed subtext) */
 }
 
 .todo.urgent {
   font-size: 24px;
-  color: #e78284;
+  color: #e78284; /* Catppuccin Frappé: Red (for errors/warnings/urgent) */
 }
 
 .todo.active {
   font-weight: bold;
-  color: #a6d18a;
+  color: #a6d18a; /* Catppuccin Frappé: Green (for success/active states) */
 }
 
 .bluetooth.disconnected {
-  opacity: 0.6;
-  color: #a5adce;
+  opacity: 0.7; /* Slightly more visible than 0.5 */
+  color: #a5adce; /* Catppuccin Frappé: Subtext0 */
 }
 
 .preview .large-icons {
@@ -170,9 +169,9 @@ child:selected .item-box {
 
 .keybinds {
   padding-top: 10px;
-  border-top: 1px solid #414559;
+  border-top: 1px solid #414559; /* Catppuccin Frappé: Surface0 (subtle separator) */
   font-size: 12px;
-  color: #b5bfe2;
+  color: #b5bfe2; /* Catppuccin Frappé: Subtext1 (for labels/secondary info) */
 }
 
 .global-keybinds {
@@ -185,8 +184,8 @@ child:selected .item-box {
 }
 
 .keybind-button {
-  opacity: 0.8;
-  color: #f4b8e4;
+  opacity: 0.9; /* Clear visibility */
+  color: #f4b8e4; /* Catppuccin Frappé: Pink (for UI elements/tags, subtle buttons) */
 }
 
 .keybind-button:hover {
@@ -196,20 +195,21 @@ child:selected .item-box {
 
 .keybind-bind {
   text-transform: lowercase;
-  opacity: 0.5;
-  color: #8caaee;
+  opacity: 0.7; /* Clearer than 0.35, but still secondary */
+  color: #8caaee; /* Catppuccin Frappé: Blue (for links/active elements) */
 }
 
 .keybind-label {
   padding: 2px 4px;
   border-radius: 4px;
-  border: 1px solid #a5adce;
+  border: 1px solid #a5adce; /* Catppuccin Frappé: Subtext0 (for subtle labels) */
+  color: @theme_fg_color; /* Catppuccin Frappé: Text */
 }
 
 .error {
   padding: 10px;
-  background: @error_bg_color;
-  color: #c6d0f5;
+  background: @error_bg_color; /* Catppuccin Frappé: Red */
+  color: @error_fg_color; /* Catppuccin Frappé: Base */
 }
 
 :not(.calc).current {
