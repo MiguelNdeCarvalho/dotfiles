@@ -63,6 +63,7 @@ usage = "2.9.0"
 usql = "0.19.26"
 watchexec = "2.3.2"
 zoxide = "0.9.8"
+yazi = "26.1.4"
 
 
 [settings]
