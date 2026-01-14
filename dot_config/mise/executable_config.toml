@@ -64,6 +64,7 @@ usql = "0.19.26"
 watchexec = "2.3.2"
 zoxide = "0.9.8"
 yazi = "26.1.4"
+tlrc = "1.12.0"
 
 
 [settings]
