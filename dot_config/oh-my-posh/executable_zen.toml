@@ -35,7 +35,7 @@ alignment = 'left'
 newline = true
 
 [[blocks.segments]]
-template = '{{ .Path }}'
+template = '{{ .Folder }}'
 foreground = 'p:blue'
 background = 'transparent'
 type = 'path'
