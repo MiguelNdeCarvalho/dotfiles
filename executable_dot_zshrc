@@ -4,7 +4,6 @@ HISTFILE="$HOME/.zsh_history"
 SAVEHIST=$HISTSIZE
 
 # Add mise
-eval "$(mise activate zsh --shims)"
 eval "$(mise activate zsh)"
 
 # Alias
@@ -42,6 +41,7 @@ alias ..="cd .."
 alias l="eza --icons --git"
 alias ls="eza -lha --icons --git"
 alias cat="bat"
+alias '??'='opencode run "$*" --model deepseek/deepseek-chat'
 
 # kubectl completations
 source <(kubectl completion zsh)
