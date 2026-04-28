@@ -1,7 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
-    "terraform-mcp-server": {
+    "aws-documentation": {
+      "type": "local",
+      "command": [
+        "docker",
+        "run",
+        "-i",
+        "--rm",
+        "mcp/aws-documentation"
+      ],
+      "enabled": true,
+    },
+    "aws-knowledge": {
+      "type": "remote",
+      "url": "https://knowledge-mcp.global.api.aws",
+      "enabled": true
+    },
+    "terraform": {
       "type": "local",
       "command": [
         "docker",
@@ -11,9 +27,6 @@
         "hashicorp/terraform-mcp-server:0.5.1"
       ],
       "enabled": true,
-      // "environment": {
-      //   "MY_ENV_VAR": "my_env_var_value",
-      // },
-    },
-  },
+    }
+  }
 }
