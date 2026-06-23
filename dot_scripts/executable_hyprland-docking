@@ -1,0 +1,36 @@
+#!/bin/bash
+case "$1" in
+dock)
+  # ln -sf "$HOME/.config/hypr/hyprlock-docked.conf" "$HOME/.config/hypr/hyprlock-active.conf"
+  hyprctl dispatch dpms off eDP-1
+  TARGET="desc:Samsung Electric Company Odyssey G93SC HNTX700240"
+  ;;
+undock)
+  # ln -sf "$HOME/.config/hypr/hyprlock-undocked.conf" "$HOME/.config/hypr/hyprlock-active.conf"
+  hyprctl dispatch dpms on eDP-1
+  TARGET="desc:Samsung Display Corp. ATNA60DL01-0"
+  ;;
+*)
+  echo "usage: hyprland-docking dock|undock" >&2
+  exit 1
+  ;;
+esac
+
+WAS_LOCKED=false
+if pgrep -x hyprlock >/dev/null 2>&1; then
+  WAS_LOCKED=true
+fi
+
+# migrate workspaces only when not locked
+if ! $WAS_LOCKED; then
+  for ws in 0 1 2 3 4 5 6 7 8 9; do
+    hyprctl dispatch moveworkspacetomonitor "$ws" "$TARGET"
+  done
+fi
+
+# restart hyprlock if it was running (input-field target monitor changed)
+if $WAS_LOCKED; then
+  kill "$(pgrep -x hyprlock)"
+  sleep 0.5
+  hyprctl dispatch exec hyprlock
+fi
