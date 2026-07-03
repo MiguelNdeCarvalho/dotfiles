@@ -24,9 +24,8 @@ eval "$(fzf --zsh)"
 # Add Atuin
 eval "$(atuin init zsh)"
 
-# Add Terrabutler if in a project
-# if [ -z ${TERRABUTLER_ENABLE+x} ]; then false; else eval "$(_TERRABUTLER_COMPLETE=zsh_source terrabutler)"; fi
-if [[ -v TERRABUTLER_ENABLE ]]; then eval "$(_TERRABUTLER_COMPLETE=zsh_source terrabutler)"; fi
+# Add Terrabutler
+eval "$(terrabutler completion zsh)"
 
 # Some ENV variables
 export EDITOR=nvim
