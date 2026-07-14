@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.80.3",
+  "lastChangelogVersion": "0.80.7",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-sonnet-5",
-  "defaultThinkingLevel": "low",
+  "defaultThinkingLevel": "high",
   "showHardwareCursor": false,
   "enableInstallTelemetry": false,
   "theme": "catppuccin-frappe",
