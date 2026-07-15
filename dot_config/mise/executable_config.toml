@@ -60,3 +60,4 @@ BRAVE_SEARCH_API_KEY = { age = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IHNzaC1yc2EgSnBC
 
 [settings]
 experimental = true
+raw = true
