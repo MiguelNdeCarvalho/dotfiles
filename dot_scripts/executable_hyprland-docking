@@ -1,11 +1,15 @@
 #!/bin/bash
+mkdir -p "$HOME/.cache/hypr"
+
 case "$1" in
 dock)
+  echo "docked" > "$HOME/.cache/hypr/dock-state"
   # ln -sf "$HOME/.config/hypr/hyprlock-docked.conf" "$HOME/.config/hypr/hyprlock-active.conf"
   hyprctl dispatch dpms off eDP-1
   TARGET="desc:Samsung Electric Company Odyssey G93SC HNTX700240"
   ;;
 undock)
+  echo "undocked" > "$HOME/.cache/hypr/dock-state"
   # ln -sf "$HOME/.config/hypr/hyprlock-undocked.conf" "$HOME/.config/hypr/hyprlock-active.conf"
   hyprctl dispatch dpms on eDP-1
   TARGET="desc:Samsung Display Corp. ATNA60DL01-0"
