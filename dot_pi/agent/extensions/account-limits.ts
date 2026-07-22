@@ -4,7 +4,7 @@ import { homedir } from "node:os";
 import { dirname, join } from "node:path";
 
 const CACHE_FILE = join(homedir(), ".config", "pi", "account-limits.json");
-const POLL_MS = 5 * 60_000;
+const POLL_MS = 2 * 60_000;
 const TIMEOUT_MS = 15_000;
 const STALE_MS = 15 * 60_000;
 const EXPIRE_MS = 24 * 60 * 60_000;
