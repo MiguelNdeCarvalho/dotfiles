@@ -9,4 +9,4 @@
 #               eDP-1 is already DPMS-off from the docking script — no-op.
 # When UNDOCKED: eDP-1 blanks safely (internal eDP never physically disconnects).
 
-hyprctl dispatch dpms off eDP-1
+hyprctl dispatch "hl.dsp.dpms({ action = 'disable', monitor = 'eDP-1' })"

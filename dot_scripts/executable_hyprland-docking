@@ -5,13 +5,13 @@ case "$1" in
 dock)
   echo "docked" > "$HOME/.cache/hypr/dock-state"
   # ln -sf "$HOME/.config/hypr/hyprlock-docked.conf" "$HOME/.config/hypr/hyprlock-active.conf"
-  hyprctl dispatch dpms off eDP-1
+  hyprctl dispatch "hl.dsp.dpms({ action = 'disable', monitor = 'eDP-1' })"
   TARGET="desc:Samsung Electric Company Odyssey G93SC HNTX700240"
   ;;
 undock)
   echo "undocked" > "$HOME/.cache/hypr/dock-state"
   # ln -sf "$HOME/.config/hypr/hyprlock-undocked.conf" "$HOME/.config/hypr/hyprlock-active.conf"
-  hyprctl dispatch dpms on eDP-1
+  hyprctl dispatch "hl.dsp.dpms({ action = 'enable', monitor = 'eDP-1' })"
   TARGET="desc:Samsung Display Corp. ATNA60DL01-0"
   ;;
 *)
@@ -27,8 +27,8 @@ fi
 
 # migrate workspaces only when not locked
 if ! $WAS_LOCKED; then
-  for ws in 0 1 2 3 4 5 6 7 8 9; do
-    hyprctl dispatch moveworkspacetomonitor "$ws" "$TARGET"
+  for ws in 1 2 3 4 5 6 7 8 9 10; do
+    hyprctl dispatch "hl.dsp.workspace.move({ workspace = $ws, monitor = '$TARGET' })"
   done
 fi
 
@@ -36,5 +36,5 @@ fi
 if $WAS_LOCKED; then
   kill "$(pgrep -x hyprlock)"
   sleep 0.5
-  hyprctl dispatch exec hyprlock
+  hyprctl dispatch "hl.dsp.exec_cmd('hyprlock')"
 fi

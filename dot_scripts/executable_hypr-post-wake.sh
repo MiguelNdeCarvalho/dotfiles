@@ -9,7 +9,7 @@ LOG="$HOME/.cache/hypr/sleep.log"
 echo "[$(date)] post-wake start" >> "$LOG"
 
 # Restore laptop screen and brightness immediately
-hyprctl dispatch dpms on eDP-1
+hyprctl dispatch "hl.dsp.dpms({ action = 'enable', monitor = 'eDP-1' })"
 brightnessctl -r
 
 PRE_SLEEP_STATE=$(cat "$HOME/.cache/hypr/dock-state-pre-sleep" 2>/dev/null)
@@ -40,20 +40,20 @@ if [ "$PRE_SLEEP_STATE" = "docked" ]; then
             ~/.scripts/hyprland-docking dock
             sleep 0.5
             # Start hyprlock on G9 (the only active monitor after dock)
-            hyprctl keyword misc:allow_session_lock_restore 1
-            hyprctl dispatch exec hyprlock
+            hyprctl eval "hl.config({ misc = { allow_session_lock_restore = true } })"
+            hyprctl dispatch "hl.dsp.exec_cmd('hyprlock')"
             echo "[$(date)] post-wake: hyprlock started on G9 (DP-1)" >> "$LOG"
         else
             # G9 didn't reconnect — fall back to eDP-1
-            hyprctl keyword misc:allow_session_lock_restore 1
-            hyprctl dispatch exec hyprlock
+            hyprctl eval "hl.config({ misc = { allow_session_lock_restore = true } })"
+            hyprctl dispatch "hl.dsp.exec_cmd('hyprlock')"
             echo "[$(date)] post-wake: G9 timeout, hyprlock on eDP-1 (fallback)" >> "$LOG"
         fi
     ) &
 else
     # Undocked: just restart hyprlock on eDP-1
-    hyprctl keyword misc:allow_session_lock_restore 1
-    hyprctl dispatch exec hyprlock
+    hyprctl eval "hl.config({ misc = { allow_session_lock_restore = true } })"
+    hyprctl dispatch "hl.dsp.exec_cmd('hyprlock')"
     echo "[$(date)] post-wake: hyprlock started on eDP-1 (undocked)" >> "$LOG"
 fi
 
