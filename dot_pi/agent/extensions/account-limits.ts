@@ -12,7 +12,7 @@ const EXPIRE_MS = 24 * 60 * 60_000;
 type Window = { used: number; resetsAt?: string };
 type ProviderError = "login required" | "rate limited" | "request timed out" | "endpoint changed" | "offline";
 type Snapshot = {
-  openai?: { weekly: Window; fetchedAt: string };
+  openai?: { session?: Window; weekly?: Window; fetchedAt: string };
   claude?: { session: Window; weekly: Window; fable?: Window; fetchedAt: string };
   errors?: { openai?: ProviderError; claude?: ProviderError };
 };
@@ -45,7 +45,16 @@ function resetTime(value: unknown): string | undefined {
   return date && !Number.isNaN(date.valueOf()) ? date.toISOString() : undefined;
 }
 
-export function parseOpenAI(body: unknown): Window {
+function openAIWindow(item: Record<string, unknown>): Window {
+  const used = validPercent(item.used_percent ?? item.utilization);
+  const remaining = validPercent(item.remaining_percent ?? item.remaining_percentage);
+  const result = used ?? (remaining === undefined ? undefined : 100 - remaining);
+  if (result === undefined) throw new EndpointChangedError();
+  const resetsAt = resetTime(item);
+  return { used: result, ...(resetsAt ? { resetsAt } : {}) };
+}
+
+export function parseOpenAI(body: unknown): { session?: Window; weekly?: Window } {
   const root = record(body);
   const rateLimit = record(root?.rate_limit ?? root?.rate_limits);
   if (!rateLimit) throw new EndpointChangedError();
@@ -53,18 +62,18 @@ export function parseOpenAI(body: unknown): Window {
   const candidates = [rateLimit.primary_window, rateLimit.secondary_window]
     .map(record)
     .filter((item): item is Record<string, unknown> => Boolean(item));
-  const weekly = candidates.find((item) => {
+  const byDuration = (minimum: number, maximum: number) => candidates.find((item) => {
     const seconds = finite(item.limit_window_seconds ?? item.window_seconds);
-    return seconds !== undefined && seconds >= 6 * 86400 && seconds <= 8 * 86400;
+    return seconds !== undefined && seconds >= minimum && seconds <= maximum;
   });
-  if (!weekly) throw new EndpointChangedError();
+  const session = byDuration(4 * 3600, 6 * 3600);
+  const weekly = byDuration(6 * 86400, 8 * 86400);
+  if (!session && !weekly) throw new EndpointChangedError();
 
-  const used = validPercent(weekly.used_percent ?? weekly.utilization);
-  const remaining = validPercent(weekly.remaining_percent ?? weekly.remaining_percentage);
-  const result = used ?? (remaining === undefined ? undefined : 100 - remaining);
-  if (result === undefined) throw new EndpointChangedError();
-  const resetsAt = resetTime(weekly);
-  return { used: result, ...(resetsAt ? { resetsAt } : {}) };
+  return {
+    ...(session ? { session: openAIWindow(session) } : {}),
+    ...(weekly ? { weekly: openAIWindow(weekly) } : {}),
+  };
 }
 
 function claudeWindow(value: unknown): Window {
@@ -116,12 +125,18 @@ async function loadCache(): Promise<Snapshot> {
     const root = record(JSON.parse(await readFile(CACHE_FILE, "utf8")));
     const openai = record(root?.openai);
     const claude = record(root?.claude);
-    const weekly = validWindow(openai?.weekly);
+    const openAIWeekly = validWindow(openai?.weekly);
+    const openAISession = validWindow(openai?.session);
     const session = validWindow(claude?.session);
     const claudeWeekly = validWindow(claude?.weekly);
     const fable = validWindow(claude?.fable);
-    const openaiCache = weekly && typeof openai?.fetchedAt === "string"
-      ? { weekly, fetchedAt: openai.fetchedAt } : undefined;
+    const openaiCache = (openAISession || openAIWeekly) && typeof openai?.fetchedAt === "string"
+      ? {
+          ...(openAISession ? { session: openAISession } : {}),
+          ...(openAIWeekly ? { weekly: openAIWeekly } : {}),
+          fetchedAt: openai.fetchedAt,
+        }
+      : undefined;
     const claudeCache = session && claudeWeekly && typeof claude?.fetchedAt === "string"
       ? { session, weekly: claudeWeekly, ...(fable ? { fable } : {}), fetchedAt: claude.fetchedAt } : undefined;
     return {
@@ -186,8 +201,8 @@ async function fetchOpenAI(ctx: ExtensionContext, signal?: AbortSignal): Promise
   };
   const accountId = headerValue(auth.headers, "chatgpt-account-id");
   if (accountId) headers["chatgpt-account-id"] = accountId;
-  const weekly = parseOpenAI(await getJson("https://chatgpt.com/backend-api/wham/usage", headers, signal));
-  return { weekly, fetchedAt: new Date().toISOString() };
+  const limits = parseOpenAI(await getJson("https://chatgpt.com/backend-api/wham/usage", headers, signal));
+  return { ...limits, fetchedAt: new Date().toISOString() };
 }
 
 async function fetchClaude(ctx: ExtensionContext, signal?: AbortSignal): Promise<Snapshot["claude"]> {
@@ -278,17 +293,22 @@ export default function (pi: ExtensionAPI) {
     const now = Date.now();
     const openaiData = visibleProvider(snapshot.openai, now);
     const claudeData = visibleProvider(snapshot.claude, now);
-    const openai = openaiData?.weekly.used;
+    const openaiSession = openaiData?.session?.used;
+    const openaiWeekly = openaiData?.weekly?.used;
     const session = claudeData?.session.used;
     const weekly = claudeData?.weekly.used;
     const fable = claudeData?.fable;
     const openaiStale = providerStatus(snapshot.openai, snapshot.errors?.openai, now);
     const claudeStale = providerStatus(snapshot.claude, snapshot.errors?.claude, now);
     const staleMark = (stale: string | undefined) => stale ? ` ${theme.fg("dim", "~")}` : "";
-    const openaiStatus = `${theme.fg("mdLink", "ChatGPT")} ${styledPercentage(openai, theme)} ${theme.fg("dim", `(${compactReset(openaiData?.weekly.resetsAt, now)})`)}${staleMark(openaiStale)}`;
+    const openaiWindows = [
+      `${theme.fg("dim", "5h")} ${styledPercentage(openaiSession, theme)} ${theme.fg("dim", `(${compactReset(openaiData?.session?.resetsAt, now)})`)}`,
+      `${theme.fg("dim", "Week")} ${styledPercentage(openaiWeekly, theme)} ${theme.fg("dim", `(${compactReset(openaiData?.weekly?.resetsAt, now)})`)}`,
+    ];
+    const openaiStatus = `${theme.fg("mdLink", "ChatGPT")} ${openaiWindows.join(` ${theme.fg("dim", "·")} `)}${staleMark(openaiStale)}`;
     const claudeWindows = [
-      `${styledPercentage(session, theme)} ${theme.fg("dim", `(${compactReset(claudeData?.session.resetsAt, now)})`)}`,
-      `${styledPercentage(weekly, theme)} ${theme.fg("dim", `(${compactReset(claudeData?.weekly.resetsAt, now)})`)}`,
+      `${theme.fg("dim", "Session")} ${styledPercentage(session, theme)} ${theme.fg("dim", `(${compactReset(claudeData?.session.resetsAt, now)})`)}`,
+      `${theme.fg("dim", "Week")} ${styledPercentage(weekly, theme)} ${theme.fg("dim", `(${compactReset(claudeData?.weekly.resetsAt, now)})`)}`,
       fable ? `${theme.fg("mdLink", "Fable")} ${styledPercentage(fable.used, theme)} ${theme.fg("dim", `(${compactReset(fable.resetsAt, now)})`)}` : undefined,
     ].filter((value): value is string => Boolean(value));
     ctx.ui.setStatus("account-limits-1-openai", openaiStatus);
@@ -367,8 +387,8 @@ export default function (pi: ExtensionAPI) {
       const claudeStatus = providerStatus(snapshot.claude, snapshot.errors?.claude, now);
       const lines = [
         "ChatGPT",
-        `  Weekly: ${percentage(openai?.weekly.used)} used`,
-        `  Resets: ${resetLabel(openai?.weekly.resetsAt)}`,
+        `  5 hours: ${percentage(openai?.session?.used)} used; resets ${resetLabel(openai?.session?.resetsAt)}`,
+        `  Week: ${percentage(openai?.weekly?.used)} used; resets ${resetLabel(openai?.weekly?.resetsAt)}`,
         openaiStatus ? `  Status: ${openaiStatus}` : undefined,
         "Claude",
         `  Session: ${percentage(claude?.session.used)} used; resets ${resetLabel(claude?.session.resetsAt)}`,
