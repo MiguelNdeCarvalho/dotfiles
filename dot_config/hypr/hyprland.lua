@@ -17,7 +17,6 @@ require("monitors")
 
 local terminal    = "kitty"
 local fileManager = "nautilus"
-local menu        = "walker"
 local browser     = "zen-browser"
 
 
@@ -30,15 +29,8 @@ local browser     = "zen-browser"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 hl.on("hyprland.start", function()
     -- hl.exec_cmd("uwsm-app -- hyprdynamicmonitors run")
-    hl.exec_cmd("uwsm-app -- hypridle")
-    hl.exec_cmd("uwsm-app -- swaync")
-    hl.exec_cmd("uwsm-app -- waybar")
-    hl.exec_cmd("uwsm-app -- hyprpaper")
-    hl.exec_cmd("uwsm-app -- swayosd-server")
-    hl.exec_cmd("uwsm-app -- nm-applet")
+    hl.exec_cmd("noctalia")
     hl.exec_cmd("uwsm-app -- /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-    hl.exec_cmd("uwsm-app -- elephant")
-    hl.exec_cmd("uwsm-app -- walker --gapplication-service")
     hl.exec_cmd("uwsm-app -- kanata --cfg ~/.config/kanata/kanata.kbd --no-wait")
     hl.exec_cmd("uwsm-app -- nextcloud --background")
 
@@ -174,7 +166,7 @@ hl.config({
     },
 
     animations = {
-        enabled = true,
+        enabled = false,
     },
 })
 
@@ -272,15 +264,20 @@ hl.device({ name = "epic-mouse-v1", sensitivity = -0.5 })
 ---------------------
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+local ipc     = "noctalia msg "
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q",         hl.dsp.window.close())
 hl.bind(mainMod .. " + RETURN",    hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E",         hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V",         hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R",         hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + R",         hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + P",         hl.dsp.window.pseudo()) -- dwindle
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(ipc .. "session lock"))
+hl.bind(mainMod .. " + C",         hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
+hl.bind(mainMod .. " + ESCAPE",    hl.dsp.exec_cmd(ipc .. "panel-toggle session"))
+hl.bind(mainMod .. " + comma",     hl.dsp.exec_cmd(ipc .. "settings-toggle"))
+hl.bind("ALT + TAB",               hl.dsp.exec_cmd(ipc .. "window-switcher"))
 hl.bind(mainMod .. " + B",         hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen())
 
@@ -316,18 +313,18 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume",   hl.dsp.exec_cmd("swayosd-client --output-volume +5"),          { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume",   hl.dsp.exec_cmd("swayosd-client --output-volume -5"),          { locked = true, repeating = true })
-hl.bind("XF86AudioMute",          hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute",       hl.dsp.exec_cmd("swayosd-client --input-volume mute-toggle"),  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",    hl.dsp.exec_cmd("swayosd-client --brightness +5"),             { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",  hl.dsp.exec_cmd("swayosd-client --brightness -5"),             { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd(ipc .. "volume-up"),       { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd(ipc .. "volume-down"),     { locked = true, repeating = true })
+hl.bind("XF86AudioMute",         hl.dsp.exec_cmd(ipc .. "volume-mute"),     { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute",      hl.dsp.exec_cmd(ipc .. "mic-mute"),        { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(ipc .. "brightness-up"),   { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"), { locked = true, repeating = true })
 
--- Requires playerctl
-hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("swayosd-client --playerctl next"),       { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("swayosd-client --playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("swayosd-client --playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("swayosd-client --playerctl previous"),   { locked = true })
+-- Media controls
+hl.bind("XF86AudioNext",  hl.dsp.exec_cmd(ipc .. "media next"),       { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd(ipc .. "media play-pause"), { locked = true })
+hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd(ipc .. "media play-pause"), { locked = true })
+hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd(ipc .. "media previous"),   { locked = true })
 
 
 --------------------------------
@@ -351,6 +348,25 @@ hl.window_rule({ match = { class = "Slack" },                   workspace = "6" 
 hl.window_rule({ match = { class = "ferdium" },                 workspace = "7" })
 hl.window_rule({ match = { class = "spotify" },                 workspace = "8" })
 hl.window_rule({ match = { class = "signal" },                  workspace = "9" })
+
+-- Noctalia settings window
+hl.window_rule({
+    match = { class = "dev.noctalia.Noctalia" },
+    float = true,
+    size = { 1080, 920 },
+})
+
+-- Noctalia surfaces: use Noctalia animations and Hyprland blur
+hl.layer_rule({
+    name = "noctalia",
+    match = {
+        namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+    },
+    no_anim = true,
+    ignore_alpha = 0.5,
+    blur = true,
+    blur_popups = true,
+})
 
 -- Example windowrule
 -- hl.window_rule({ match = { class = "^(kitty)$", title = "^(kitty)$" }, float = true })
