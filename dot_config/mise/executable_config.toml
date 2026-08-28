@@ -58,6 +58,8 @@ glab = "1.114.0"
 hunkdiff = "0.19.0"
 "github:agavra/tuicr" = "0.23.1"
 "aqua:mikefarah/yq" = "latest"
+codex = "0.149.1"
+claude-code = "2.1.247"
 
 [env]
 IS_MONTBLU_DEVOPS = "yes"
