@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.7",
+  "lastChangelogVersion": "0.84.3",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-sonnet-5",
   "defaultThinkingLevel": "high",
@@ -12,7 +12,8 @@
     "npm:@tmustier/pi-usage-extension",
     "npm:@gotgenes/pi-anthropic-auth",
     "npm:pi-subagents",
-    "npm:pi-prompt-template-model"
+    "npm:pi-prompt-template-model",
+    "npm:pi-web-access"
   ],
   "images": {
     "autoResize": false
@@ -24,61 +25,12 @@
   "enabledModels": [
     "anthropic/claude-sonnet-5",
     "openrouter/deepseek/deepseek-v4-pro",
-    "anthropic/claude-fable-5",
     "anthropic/claude-haiku-4-5",
-    "anthropic/claude-opus-4-8",
     "ollama/qwen3.6-27b",
-    "openrouter/minimax/minimax-m3",
-    "openrouter/moonshotai/kimi-k2.7-code"
+    "openai-codex/gpt-5.6-terra",
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-luna",
+    "anthropic/claude-opus-5"
   ],
-  "hideThinkingBlock": false,
-  "subagents": {
-    "defaultModel": "ollama/qwen3.6-27b",
-    "agentOverrides": {
-      "context-builder": {
-        "fallbackModels": [
-          "anthropic/claude-haiku-4-5"
-        ]
-      },
-      "delegate": {
-        "fallbackModels": [
-          "anthropic/claude-haiku-4-5"
-        ]
-      },
-      "oracle": {
-        "model": "anthropic/claude-opus-4-8",
-        "fallbackModels": [
-          "anthropic/claude-sonnet-5"
-        ]
-      },
-      "planner": {
-        "model": "anthropic/claude-sonnet-5",
-        "fallbackModels": [
-          "anthropic/claude-haiku-4-5"
-        ]
-      },
-      "researcher": {
-        "fallbackModels": [
-          "anthropic/claude-haiku-4-5"
-        ]
-      },
-      "reviewer": {
-        "model": "anthropic/claude-sonnet-5",
-        "fallbackModels": [
-          "anthropic/claude-haiku-4-5"
-        ]
-      },
-      "scout": {
-        "fallbackModels": [
-          "anthropic/claude-haiku-4-5"
-        ]
-      },
-      "worker": {
-        "fallbackModels": [
-          "anthropic/claude-sonnet-5",
-          "anthropic/claude-haiku-4-5"
-        ]
-      }
-    }
-  }
+  "hideThinkingBlock": false
 }
