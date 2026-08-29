@@ -17,7 +17,7 @@ require("monitors")
 
 local terminal    = "kitty"
 local fileManager = "nautilus"
-local browser     = "zen-browser"
+local browser     = "helium-browser"
 
 
 -------------------
@@ -36,7 +36,7 @@ hl.on("hyprland.start", function()
 
     -- Launch apps; workspace placement handled by hl.window_rule below (avoids
     -- the hyprctl-dispatch-exec startup race — see window rules at bottom of file)
-    hl.exec_cmd("uwsm-app -- zen-browser")
+    hl.exec_cmd("uwsm-app -- helium-browser")
     hl.exec_cmd("uwsm-app -- kitty")
     hl.exec_cmd("uwsm-app -- thunderbird")
     hl.exec_cmd("uwsm-app -- obsidian")
@@ -339,7 +339,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd(ipc .. "media previous"),   { locked =
 -- reintroduce `hyprctl dispatch exec [workspace N] app` in the autostart
 -- block above; it races Hyprland's startup IPC/workspace-token state and
 -- silently fails for most apps (see 2026-07-26 investigation).
-hl.window_rule({ match = { class = "zen" },                     workspace = "1" })
+hl.window_rule({ match = { class = "helium" },                  workspace = "1" })
 hl.window_rule({ match = { class = "kitty" },                   workspace = "2" })
 hl.window_rule({ match = { class = "org.mozilla.Thunderbird" }, workspace = "3" })
 hl.window_rule({ match = { class = "obsidian" },                workspace = "4" })
@@ -370,3 +370,6 @@ hl.layer_rule({
 
 -- Example windowrule
 -- hl.window_rule({ match = { class = "^(kitty)$", title = "^(kitty)$" }, float = true })
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()
