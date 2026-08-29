@@ -387,7 +387,12 @@ end
 -- reintroduce `hyprctl dispatch exec [workspace N] app` in the autostart
 -- block above; it races Hyprland's startup IPC/workspace-token state and
 -- silently fails for most apps (see 2026-07-26 investigation).
-hl.window_rule({ match = { class = "helium" }, workspace = "1" })
+hl.window_rule({
+	match = { class = "helium" },
+	workspace = "1",
+	tile = true,
+	suppress_event = "maximize fullscreen",
+})
 hl.window_rule({ match = { class = "kitty" }, workspace = "2" })
 hl.window_rule({ match = { class = "org.mozilla.Thunderbird" }, workspace = "3" })
 hl.window_rule({ match = { class = "md.obsidian.Obsidian" }, workspace = "4" })
