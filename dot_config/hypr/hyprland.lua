@@ -32,20 +32,47 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("uwsm-app -- kanata --cfg ~/.config/kanata/kanata.kbd --no-wait")
 	hl.exec_cmd("uwsm-app -- nextcloud --background")
 
-	-- Launch Work first. Once its window maps, focus it, preselect a right-side
-	-- split, then launch Personal. This keeps Work left and Personal right.
-	-- Workspace placement remains handled by hl.window_rule below.
-	local workWindowSubscription
-	workWindowSubscription = hl.on("window.open", function(window)
+	-- Ignore Helium's restored maximize/fullscreen state only during startup.
+	-- Launch Work first, preselect a right-side split, then launch Personal.
+	local heliumStartupRule = hl.window_rule({
+		name = "helium-startup-state",
+		match = { class = "helium" },
+		tile = true,
+		suppress_event = "maximize fullscreen",
+	})
+	local heliumWindowCount = 0
+	local heliumWindowSubscription
+	local heliumStartupTimeout
+
+	local function finishHeliumStartup()
+		heliumStartupRule:set_enabled(false)
+		if heliumWindowSubscription:is_active() then
+			heliumWindowSubscription:remove()
+		end
+		if heliumStartupTimeout:is_enabled() then
+			heliumStartupTimeout:set_enabled(false)
+		end
+	end
+
+	heliumWindowSubscription = hl.on("window.open", function(window)
 		if window.class ~= "helium" then
 			return
 		end
 
-		workWindowSubscription:remove()
-		hl.dispatch(hl.dsp.focus({ window = window }))
-		hl.dispatch(hl.dsp.layout("preselect r"))
-		hl.exec_cmd("uwsm-app -- " .. personalBrowser)
+		-- Clear restored client state before disabling startup suppression.
+		hl.dispatch(hl.dsp.window.fullscreen_state({ internal = 0, client = 0, window = window }))
+		heliumWindowCount = heliumWindowCount + 1
+		if heliumWindowCount == 1 then
+			hl.dispatch(hl.dsp.focus({ window = window }))
+			hl.dispatch(hl.dsp.layout("preselect r"))
+			hl.exec_cmd("uwsm-app -- " .. personalBrowser)
+		else
+			finishHeliumStartup()
+		end
 	end)
+
+	-- Never leave client fullscreen suppression active if one profile fails.
+	heliumStartupTimeout = hl.timer(finishHeliumStartup, { timeout = 15000, type = "oneshot" })
 	hl.exec_cmd("uwsm-app -- " .. workBrowser)
 
 	hl.exec_cmd("uwsm-app -- kitty")
@@ -391,7 +418,6 @@ hl.window_rule({
 	match = { class = "helium" },
 	workspace = "1",
 	tile = true,
-	suppress_event = "maximize fullscreen",
 })
 hl.window_rule({ match = { class = "kitty" }, workspace = "2" })
 hl.window_rule({ match = { class = "org.mozilla.Thunderbird" }, workspace = "3" })
