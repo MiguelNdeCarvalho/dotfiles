@@ -16,22 +16,28 @@ Treat files in the home directory as authoritative targets. Let `chezmoi re-add`
    chezmoi source-path "$target"
    ```
    A nonzero result means it is unmanaged. Do not assume a corresponding source file exists.
-3. Read and edit the live target only, such as:
+3. Check chezmoi's git repository before editing:
+   ```bash
+   source_dir="$(chezmoi source-path)"
+   git -C "$source_dir" status --short --branch
+   ```
+   Stop if unexpected changes exist. Automatic commit/push could otherwise include unrelated source changes.
+4. Read and edit the live target only, such as:
    ```text
    ~/.config/hypr/hyprland.lua
    ```
-4. Do not edit files below:
+5. Do not edit files below:
    ```text
    ~/.local/share/chezmoi/
    ```
    Direct source edits bypass the target-first workflow and may later overwrite the live configuration.
-5. Validate the target using relevant syntax, tests, and runtime checks. Run `chezmoi diff -- "$target"` when useful to inspect the pending target/source difference.
-6. After validation succeeds, synchronize, commit, and push through the configured workflow:
+6. Validate the target using relevant syntax, tests, and runtime checks. Run `chezmoi diff -- "$target"` when useful to inspect the pending target/source difference.
+7. After validation succeeds, synchronize, commit, and push through the configured workflow:
    ```bash
    chezmoi re-add "$target"
    ```
    Pass all changed managed targets when one task intentionally changes several files. Avoid bare `chezmoi re-add` because it can capture unrelated modifications.
-7. Verify completion:
+8. Verify completion:
    ```bash
    source_dir="$(chezmoi source-path)"
    git -C "$source_dir" status --short --branch
