@@ -349,6 +349,14 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd(ipc .. "media previous"),   { locked =
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/ for more
 -- See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/ for workspace rules
 
+-- Keep numbered workspaces visible in Noctalia even while empty.
+for i = 1, 10 do
+    hl.workspace_rule({
+        workspace = tostring(i),
+        persistent = true,
+    })
+end
+
 -- Workspace rules to assign apps to specific workspaces.
 -- This is the ONLY workspace-assignment mechanism for these apps — do not
 -- reintroduce `hyprctl dispatch exec [workspace N] app` in the autostart
