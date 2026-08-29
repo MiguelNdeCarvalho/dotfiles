@@ -15,9 +15,10 @@ require("monitors")
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal    = "kitty"
-local fileManager = "nautilus"
-local browser     = "helium-browser"
+local terminal        = "kitty"
+local fileManager     = "nautilus"
+local personalBrowser = 'helium-browser --profile-directory="Default" --new-window'
+local workBrowser     = 'helium-browser --profile-directory="Profile 1" --new-window'
 
 
 -------------------
@@ -34,9 +35,22 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm-app -- kanata --cfg ~/.config/kanata/kanata.kbd --no-wait")
     hl.exec_cmd("uwsm-app -- nextcloud --background")
 
-    -- Launch apps; workspace placement handled by hl.window_rule below (avoids
-    -- the hyprctl-dispatch-exec startup race — see window rules at bottom of file)
-    hl.exec_cmd("uwsm-app -- helium-browser")
+    -- Launch Work first. Once its window maps, focus it, preselect a right-side
+    -- split, then launch Personal. This keeps Work left and Personal right.
+    -- Workspace placement remains handled by hl.window_rule below.
+    local workWindowSubscription
+    workWindowSubscription = hl.on("window.open", function(window)
+        if window.class ~= "helium" then
+            return
+        end
+
+        workWindowSubscription:remove()
+        hl.dispatch(hl.dsp.focus({ window = window }))
+        hl.dispatch(hl.dsp.layout("preselect r"))
+        hl.exec_cmd("uwsm-app -- " .. personalBrowser)
+    end)
+    hl.exec_cmd("uwsm-app -- " .. workBrowser)
+
     hl.exec_cmd("uwsm-app -- kitty")
     hl.exec_cmd("uwsm-app -- thunderbird")
     hl.exec_cmd("uwsm-app -- obsidian")
@@ -278,7 +292,8 @@ hl.bind(mainMod .. " + C",         hl.dsp.exec_cmd(ipc .. "panel-toggle control-
 hl.bind(mainMod .. " + ESCAPE",    hl.dsp.exec_cmd(ipc .. "panel-toggle session"))
 hl.bind(mainMod .. " + comma",     hl.dsp.exec_cmd(ipc .. "settings-toggle"))
 hl.bind("ALT + TAB",               hl.dsp.exec_cmd(ipc .. "window-switcher"))
-hl.bind(mainMod .. " + B",         hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + B",         hl.dsp.exec_cmd(personalBrowser))
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(workBrowser))
 hl.bind(mainMod .. " + F",         hl.dsp.window.fullscreen())
 
 -- Printscreen bindings
