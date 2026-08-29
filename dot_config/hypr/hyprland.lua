@@ -390,11 +390,11 @@ end
 hl.window_rule({ match = { class = "helium" }, workspace = "1" })
 hl.window_rule({ match = { class = "kitty" }, workspace = "2" })
 hl.window_rule({ match = { class = "org.mozilla.Thunderbird" }, workspace = "3" })
-hl.window_rule({ match = { class = "obsidian" }, workspace = "4" })
+hl.window_rule({ match = { class = "md.obsidian.Obsidian" }, workspace = "4" })
 hl.window_rule({ match = { class = "discord" }, workspace = "5" })
 hl.window_rule({ match = { class = "Slack" }, workspace = "6" })
 hl.window_rule({ match = { class = "ferdium" }, workspace = "7" })
-hl.window_rule({ match = { class = "spotify" }, workspace = "8" })
+hl.window_rule({ match = { class = "Spotify" }, workspace = "8" })
 hl.window_rule({ match = { class = "signal" }, workspace = "9" })
 
 -- Noctalia settings window
