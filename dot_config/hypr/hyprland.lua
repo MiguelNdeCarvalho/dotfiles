@@ -271,66 +271,97 @@ hl.device({ name = "epic-mouse-v1", sensitivity = -0.5 })
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local ipc = "noctalia msg "
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo()) -- dwindle
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(ipc .. "session lock"))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
-hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd(ipc .. "panel-toggle session"))
-hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
-hl.bind("ALT + TAB", hl.dsp.exec_cmd(ipc .. "window-switcher"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(personalBrowser))
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(workBrowser))
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+-- See https://wiki.hypr.land/Configuring/Basics/Binds/ for more.
+-- Numbered headings and literal descriptions are parsed by Keybind Cheatsheet.
 
--- Printscreen bindings
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output"))
-hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
-hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot -m window"))
+-- 1. Applications
+hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal), { description = "Open terminal" })
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager), { description = "Open file manager" })
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(personalBrowser), { description = "Open Personal browser" })
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(workBrowser), { description = "Open Work browser" })
 
--- Move focus with mainMod + vim keys
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
+-- 2. Noctalia Shell
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"), { description = "Open app launcher" })
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"), { description = "Open control center" })
+hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd(ipc .. "panel-toggle session"), { description = "Open session menu" })
+hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"), { description = "Open Noctalia settings" })
+hl.bind("ALT + TAB", hl.dsp.exec_cmd(ipc .. "window-switcher"), { description = "Open window switcher" })
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(ipc .. "session lock"), { description = "Lock session" })
+hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd(ipc .. "panel-toggle kenn/keybind-cheatsheet:cheatsheet"), {
+	description = "Show keybind cheatsheet",
+})
 
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
+-- 3. Window Management
+hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { description = "Close active window" })
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }), { description = "Toggle floating window" })
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo(), { description = "Toggle pseudo tiling" })
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen(), { description = "Toggle fullscreen" })
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }), { description = "Focus window left" })
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }), { description = "Focus window right" })
+hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }), { description = "Focus window up" })
+hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }), { description = "Focus window down" })
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move window with mouse" })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize window with mouse" })
+
+-- 4. Screenshots
+hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output"), { description = "Capture current display" })
+hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region"), { description = "Capture selected region" })
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot -m window"), { description = "Capture active window" })
+
+-- 5. Workspaces
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }), {
+		description = "Switch to workspace " .. i,
+	})
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }), {
+		description = "Move window to workspace " .. i,
+	})
 end
+hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"), { description = "Toggle scratchpad" })
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }), {
+	description = "Move window to scratchpad",
+})
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { description = "Next workspace" })
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }), { description = "Previous workspace" })
 
--- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- 6. Audio and Brightness
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"), {
+	locked = true,
+	repeating = true,
+	description = "Raise volume",
+})
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down"), {
+	locked = true,
+	repeating = true,
+	description = "Lower volume",
+})
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"), {
+	locked = true,
+	repeating = true,
+	description = "Mute audio",
+})
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(ipc .. "mic-mute"), {
+	locked = true,
+	repeating = true,
+	description = "Mute microphone",
+})
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"), {
+	locked = true,
+	repeating = true,
+	description = "Raise brightness",
+})
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"), {
+	locked = true,
+	repeating = true,
+	description = "Lower brightness",
+})
 
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-
--- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-
--- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(ipc .. "mic-mute"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"), { locked = true, repeating = true })
-
--- Media controls
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. "media next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd(ipc .. "media play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. "media play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. "media previous"), { locked = true })
+-- 7. Media
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. "media next"), { locked = true, description = "Next track" })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd(ipc .. "media play-pause"), { locked = true, description = "Play or pause media" })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. "media play-pause"), { locked = true, description = "Play or pause media" })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. "media previous"), { locked = true, description = "Previous track" })
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
