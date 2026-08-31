@@ -31,6 +31,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("uwsm-app -- /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 	hl.exec_cmd("uwsm-app -- kanata --cfg ~/.config/kanata/kanata.kbd --no-wait")
 	hl.exec_cmd("uwsm-app -- nextcloud --background")
+	hl.exec_cmd("uwsm-app -- opendeck")
 
 	-- Ignore Helium's restored maximize/fullscreen state only during startup.
 	-- Launch Work first, preselect a right-side split, then launch Personal.
