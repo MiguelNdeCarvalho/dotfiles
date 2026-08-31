@@ -432,6 +432,45 @@ hl.window_rule({ match = { class = "ferdium" }, workspace = "7" })
 hl.window_rule({ match = { class = "Spotify" }, workspace = "8" })
 hl.window_rule({ match = { class = "signal" }, workspace = "9" })
 
+-- Float dialogs used by apps such as Helium and Slack without floating their
+-- main windows.
+hl.window_rule({
+	match = { class = "^xdg-desktop-portal-gtk$" },
+	float = true,
+	center = true,
+	size = { 875, 600 },
+})
+
+-- Browser picture-in-picture overlays.
+hl.window_rule({
+	match = { title = "(Picture.?in.?[Pp]icture)" },
+	float = true,
+	pin = true,
+	size = { 600, 338 },
+	keep_aspect_ratio = true,
+	border_size = 0,
+	move = { "(monitor_w-window_w-40)", "(monitor_h*0.04)" },
+})
+
+-- Google Meet uses its meeting title instead of the usual PiP title.
+hl.window_rule({
+	match = { class = "^helium$", title = "^Meet - .+" },
+	float = true,
+	pin = true,
+	size = { 600, 338 },
+	keep_aspect_ratio = true,
+	border_size = 0,
+	move = { "(monitor_w-window_w-40)", "(monitor_h-window_h-40)" },
+})
+
+-- Lightweight media and file-preview windows.
+hl.window_rule({
+	match = { class = "^(org.gnome.NautilusPreviewer|imv|mpv)$" },
+	float = true,
+	center = true,
+	size = { 875, 600 },
+})
+
 -- Noctalia settings window
 hl.window_rule({
 	match = { class = "dev.noctalia.Noctalia" },
