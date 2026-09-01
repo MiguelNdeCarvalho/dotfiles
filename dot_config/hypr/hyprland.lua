@@ -113,14 +113,6 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 
--- Force NVIDIA as the primary driver for all backends
-hl.env("LIBVA_DRIVER_NAME", "nvidia")
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-hl.env("GBM_BACKEND", "nvidia-drm")
-
--- NVIDIA Hardware Acceleration fix
-hl.env("NVD_BACKEND", "direct")
-
 hl.config({
 	xwayland = {
 		force_zero_scaling = true,
@@ -307,10 +299,15 @@ hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal), { description = "Open
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager), { description = "Open file manager" })
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(personalBrowser), { description = "Open Personal browser" })
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(workBrowser), { description = "Open Work browser" })
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd(ipc .. "panel-toggle clipboard"), { description = "Open clipboard selector" })
 
 -- 2. Noctalia Shell
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"), { description = "Open app launcher" })
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"), { description = "Open control center" })
+hl.bind(
+	mainMod .. " + C",
+	hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"),
+	{ description = "Open control center" }
+)
 hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd(ipc .. "panel-toggle session"), { description = "Open session menu" })
 hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"), { description = "Open Noctalia settings" })
 hl.bind("ALT + TAB", hl.dsp.exec_cmd(ipc .. "window-switcher"), { description = "Open window switcher" })
@@ -394,8 +391,16 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"), {
 
 -- 7. Media
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. "media next"), { locked = true, description = "Next track" })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd(ipc .. "media play-pause"), { locked = true, description = "Play or pause media" })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. "media play-pause"), { locked = true, description = "Play or pause media" })
+hl.bind(
+	"XF86AudioPause",
+	hl.dsp.exec_cmd(ipc .. "media play-pause"),
+	{ locked = true, description = "Play or pause media" }
+)
+hl.bind(
+	"XF86AudioPlay",
+	hl.dsp.exec_cmd(ipc .. "media play-pause"),
+	{ locked = true, description = "Play or pause media" }
+)
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. "media previous"), { locked = true, description = "Previous track" })
 
 --------------------------------
