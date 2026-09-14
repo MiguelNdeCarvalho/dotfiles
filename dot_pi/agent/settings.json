@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.84.4",
+  "lastChangelogVersion": "0.85.1",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-sonnet-5",
   "defaultThinkingLevel": "high",
@@ -32,5 +32,8 @@
     "openai-codex/gpt-5.6-luna",
     "anthropic/claude-opus-5"
   ],
-  "hideThinkingBlock": false
+  "hideThinkingBlock": false,
+  "warnings": {
+    "anthropicExtraUsage": false
+  }
 }
