@@ -29,7 +29,7 @@ lazygit = "0.65.1"
 neovim = "0.12.5"
 node = "26.8.2"
 opencode = "1.18.30"
-pi = "0.85.1"
+pi = "0.87.0"
 postgres = "18.6"
 "llama.cpp" = { version = "10938", version_prefix = "b" }
 ripgrep = "15.2.0"
