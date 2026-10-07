@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "1.0.4",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-sonnet-5",
   "defaultThinkingLevel": "high",
@@ -13,7 +13,8 @@
     "npm:@gotgenes/pi-anthropic-auth",
     "npm:pi-subagents",
     "npm:pi-prompt-template-model",
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:pi-open-tui"
   ],
   "images": {
     "autoResize": false
