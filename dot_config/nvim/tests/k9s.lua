@@ -55,6 +55,7 @@ end
 
 toggle()
 local first = current_terminal()
+assert(first.opts.title == " K9s - alpha.yaml ", "Title must show inherited kubeconfig filename")
 local channel = vim.bo[first.buf].channel
 wait_for_output(first, vim.env.KUBECONFIG)
 toggle()
@@ -66,6 +67,7 @@ choose(nil)
 assert(current_terminal() == first, "Cancel must preserve process")
 choose("beta config")
 local second = current_terminal()
+assert(second.opts.title == " K9s - beta config ", "Title must show selected kubeconfig filename")
 assert(second ~= first and not first:buf_valid(), "Selection must replace old process")
 wait_for_output(second, directory .. "/beta config")
 assert(vim.env.KUBECONFIG == directory .. "/alpha.yaml", "Picker must not change editor environment")
@@ -95,6 +97,14 @@ vim.wait(20, function() return false end)
 select_config = vim.fn.maparg("<leader>aK", "n", false, true).callback
 vim.env.KUBECONFIG = directory .. "/alpha.yaml:" .. directory .. "/beta config"
 choose(nil)
+toggle = vim.fn.maparg("<leader>ak", "n", false, true).callback
+toggle()
+assert(current_terminal().opts.title == " K9s - alpha.yaml ", "Title must use first path in KUBECONFIG list")
+current_terminal():close()
+vim.env.KUBECONFIG = nil
+toggle()
+assert(current_terminal().opts.title == " K9s - config ", "Title must show default kubeconfig filename")
+current_terminal():close()
 local warnings = {}
 vim.notify = function(message) warnings[#warnings + 1] = message end
 vim.env.KUBECONFIG = directory .. "/missing/config"

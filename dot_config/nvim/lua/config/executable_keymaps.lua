@@ -73,6 +73,8 @@ local function show_k9s()
     if k9s_term and k9s_term:buf_valid() then
       k9s_term:close()
     end
+    local config = k9s_config or vim.env.KUBECONFIG or ""
+    local first = vim.split(config, ":", { trimempty = true })[1] or vim.fn.expand("~/.kube/config")
     k9s_term = Snacks.terminal.open({ "k9s" }, {
       cwd = vim.fn.getcwd(),
       env = k9s_config and { KUBECONFIG = k9s_config } or nil,
@@ -84,7 +86,7 @@ local function show_k9s()
         width = 0.9,
         height = 0.9,
         border = "rounded",
-        title = " K9s ",
+        title = " K9s - " .. vim.fs.basename(first) .. " ",
         title_pos = "center",
         on_buf = function(term)
           term:on("TermClose", function()
