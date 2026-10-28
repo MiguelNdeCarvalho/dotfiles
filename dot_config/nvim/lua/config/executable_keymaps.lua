@@ -46,6 +46,16 @@ map("n", "<leader>ap", function()
   end
 end, { desc = "Toggle Pi" })
 
+map("n", "<leader>aP", function()
+  if pi_term and pi_term:buf_valid() then
+    -- An intentional restart must not report the stopped job as a failure.
+    vim.api.nvim_clear_autocmds({ event = "TermClose", group = pi_term.augroup, buffer = pi_term.buf })
+    pi_term:close()
+  end
+  pi_term = nil
+  show_pi()
+end, { desc = "Restart Pi" })
+
 map("x", "<leader>ap", function()
   local selection = table.concat(
     vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getcurpos(), { type = vim.fn.mode() }),
