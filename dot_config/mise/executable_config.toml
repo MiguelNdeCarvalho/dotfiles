@@ -45,7 +45,7 @@ tflint = "0.65.0"
 tlrc = "1.13.1"
 tmux = "3.8"
 tree-sitter = "0.27.1"
-usage = { version = "7.1.4", workflow = "publish-cli.yml" }
+usage = { version = "7.1.5", workflow = "publish-cli.yml" }
 usql = "0.21.6"
 uv = "0.13.6"
 yazi = "26.9.1"
