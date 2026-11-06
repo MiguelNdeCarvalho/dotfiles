@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.4.0",
+  "lastChangelogVersion": "1.5.0",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-sonnet-5-5",
   "defaultThinkingLevel": "high",
@@ -37,5 +37,13 @@
   "hideThinkingBlock": true,
   "warnings": {
     "anthropicExtraUsage": false
+  },
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:@tmustier/pi-usage-extension\",\"scope\":\"user\"}": "0.10.2",
+    "{\"source\":\"npm:@gotgenes/pi-anthropic-auth\",\"scope\":\"user\"}": "3.4.4",
+    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.85.0",
+    "{\"source\":\"npm:pi-prompt-template-model\",\"scope\":\"user\"}": "0.12.3",
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
+    "{\"source\":\"npm:pi-open-tui\",\"scope\":\"user\"}": "0.4.3"
   }
 }
